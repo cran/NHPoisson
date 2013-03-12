@@ -57,7 +57,7 @@ length of the intervals (specified by the argument lint),
 
 The function also calculates  the residuals scaled  with  the function \eqn{h(t)}
 
-\deqn{r_{sca}(l_1, l_2)=\sum_{t_i \in (l_1,l_2)} h(t_i)-\int_{l_1}^{l_2} h(u) \hat \lambda(u)du.}
+\deqn{r_{sca}(l_1, l_2)=\sum_{t_i \in (l_1,l_2)}h_{t_i}-\int_{l_1}^{l_2} h(u) \hat \lambda(u)du.}
 
 By default,  Pearson residuals with \eqn{h(t)=1/\sqrt{\hat \lambda(t)}} are calculated.}
 

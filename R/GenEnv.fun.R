@@ -1,22 +1,22 @@
 GenEnv.fun <-
 function(nsim,lambda, fun.name,fun.args=NULL,clevel=0.95,n=100,
 cores=NULL)
-{	
-	if (is.null(cores)) cores<-detectCores()
-	cl<-makeCluster(cores)
-	clusterExport(cl, objects(, envir = .GlobalEnv))
-	simval <- parSapply(cl, c(1:nsim), FUN=funSim.fun,
-		lambda, fun.name=fun.name,fun.args=fun.args,n=n)
-	stopCluster(cl)
+{
+if (is.null(cores)) cores<-detectCores()
+cl<-makeCluster(cores)
+clusterExport(cl, objects(, envir = .GlobalEnv))
+simval <- parSapply(cl, c(1:nsim), FUN=funSim.fun,
+lambda, fun.name=fun.name,fun.args=fun.args,n=n)
+stopCluster(cl)
 
-	simval<-matrix(simval, ncol=1)
-	valmed<-apply(simval,MARGIN=2, FUN=mean, na.rm=TRUE)
-	valinf<-apply(simval,MARGIN=2, FUN=quantile,p=1-clevel, na.rm=TRUE) 
-	valsup<-apply(simval,MARGIN=2, FUN=quantile,p=clevel, na.rm=TRUE)
+simval<-matrix(simval, ncol=1)
+valmed<-apply(simval,MARGIN=2, FUN=mean, na.rm=TRUE)
+valinf<-apply(simval,MARGIN=2, FUN=quantile,p=1-clevel, na.rm=TRUE) 
+valsup<-apply(simval,MARGIN=2, FUN=quantile,p=clevel, na.rm=TRUE)
 
-	cat('Lower interval: ', valinf, fill=T)
-	cat('Mean value: ', valmed, fill=T)
-	cat('Upper interval: ', valsup, fill=T)
+cat('Lower interval: ', valinf, fill=T)
+cat('Mean value: ', valmed, fill=T)
+cat('Upper interval: ', valsup, fill=T)
 
-	return(list(valmed=valmed,valinf=valinf,valsup=valsup, lambda=lambda, nsim=nsim))
+return(list(valmed=valmed,valinf=valinf,valsup=valsup, lambda=lambda, nsim=nsim))
 }

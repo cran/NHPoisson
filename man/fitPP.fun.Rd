@@ -9,9 +9,10 @@ approximate confidence intervals for \eqn{\lambda(t)}.}
 
 \usage{
 fitPP.fun(covariates = NULL, beta, posE = NULL, inddat = NULL, POTob = NULL, 
-namcovariates = NULL, n = NULL, tind = "TRUE", tim = NULL, modCI = "TRUE", 
-CIty = "Delta", clevel = 0.95, tit = '', modSim = "FALSE", dplot = TRUE, 
-xlegend = "topleft")
+namcovariates = NULL, n = NULL, tind = "TRUE", tim = NULL, maxty='nlminb',
+method="Nelder-Mead", modCI = "TRUE", CIty = "Transf", clevel = 0.95,
+ tit = '', modSim = "FALSE", dplot = TRUE, xlegend = "topleft",
+lambdaxlim=NULL,lambdaylim=NULL)
 }
 
 \arguments{
@@ -43,12 +44,22 @@ linear predictor.}
   \item{tim}{Optional. Time vector  of  the observation period.
 By default, a vector 1,...n is considered.}
 
+
+   \item{maxty}{Label indicating  the function used to maximize the loglikelihood function.
+ If it is 'nlminb'  the function \code{\link{nlminb}} is used (the default option). If it is 'optim'
+the function \code{\link{optim}} is used; in this case, the method of optimization 
+can be chosen with the  following argument.}
+
+   \item{method}{Label indicating  the algorithm of optimization if 
+argument \code{maxty} is 'optim'. See \code{\link{optim}} for details. The default option
+is 'Nelder-Mead'.}
+
   \item{modCI}{Logical flag. If it is TRUE, confidence intervals  
 for \eqn{\lambda(t)} values are calculated.}
 
   \item{CIty}{Label indicating  the method to calculate the approximate
-confidence intervals  for \eqn{\lambda(t)}. It can be 'delta' for the delta method
-or 'transf' for transformed asymptotic intervals; see \code{\link{CIdelta.fun}} and
+confidence intervals  for \eqn{\lambda(t)}. It can be 'Delta' for the delta method
+or 'Transf' for transformed asymptotic intervals (default); see \code{\link{CIdelta.fun}} and
 \code{\link{CItran.fun}} for details.}
 
   \item{clevel}{Confidence level of the  confidence intervals.}
@@ -63,6 +74,11 @@ estimation process is shown on the screen.
 
   \item{xlegend}{Label indicating the position where the legend on 
 the graph will be located. }
+
+   \item{lambdaxlim}{Optional. Numeric vector of length 2, giving the  lowest and highest values which determine the x  range.}
+
+    \item{lambdaylim}{Optional. Numeric vector of length 2, giving the  lowest and highest values which determine the y  range.}
+
 }
 
 \details{
@@ -145,6 +161,6 @@ tiempoB<-BarTxTn$ano+rep(c(0:152)/153,55)
 mod2B<-fitPP.fun(tind='TRUE',covariates=covB, 
 	POTob=list(T=BarTxTn$Tx, thres=318),
 	tim=tiempoB, tit='BAR Tx; cos, sin, TTx, Txm31, Txm31**2', 
-	beta=c(-100,1,10,0,0,0),CIty='Transf',modCI=TRUE,
+	beta=c(-100,1,10,0,0,0),CIty='Delta',modCI=TRUE,
 	modSim=TRUE)
 }

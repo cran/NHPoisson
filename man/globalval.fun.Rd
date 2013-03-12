@@ -12,11 +12,7 @@ It also  plots the fitted and  empirical estimations of the NHPP intensity.
 Optionally, it also performs a  residual QQplot.}
 
 \details{If typeI='Overlapping', argument lint is compulsory. If 
-typeI='Disjoint', only one of the arguments lint or  nlint must be specified.
-
-Variables in argument Xvar are used for the plots of the
-(generalized) uniform residuals and for the lurking variable plots.
-If Xvar is NULL, the variables in argument covariates are used.}
+typeI='Disjoint', only one of the arguments lint or  nlint must be specified.}
 
 \usage{
 globalval.fun(obFPP, lint = NULL, nint = NULL, covariates, Xvar = NULL, 
@@ -43,15 +39,13 @@ In that case, only one of  the arguments lint or nint must be specified.}
   \item{covariates}{Matrix of covariates used to fit the NHPP specified in objFPP
 (each column is a covariate).}
 
-   \item{Xvar}{Optional. Matrix of the lurking variables (each column is a variable). 
-They are also used  for the plots of the (generalized) uniform residuals.}
+   \item{Xvar}{Optional. Matrix of the lurking variables (each column is a variable).}
 
   \item{namXvar}{Optional. Vector of names of the variables in Xvar.}
 
 
   \item{Xvart}{Optional. Matrix of the variables for the 
-residual plots  for monotonous variables (each column is a variable). 
-A time  plot is performed in all the cases.}
+residual plots (each column is a variable). A time  plot is performed in all the cases.}
 
   \item{namXvart}{Optional. Vector of names of the variables in Xvart.}
 
@@ -147,6 +141,6 @@ aux<-globalval.fun(obFPP=modB,lint=153,	covariates=covB,typeI='Disjoint',
 ##by default.
 
 aux<-globalval.fun(obFPP=modB,lint=153,	covariates=covB,typeI='Disjoint', 
-	resqqplot=FALSE,Xvar=covB[,1])
+	resqqplot=FALSE)
 
 }

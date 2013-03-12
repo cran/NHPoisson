@@ -13,7 +13,10 @@
   \item{lambdafit}{Numeric vector, the fitted PP intensity \eqn{\hat \lambda(t)}.}
 }
 
-\details{The variance matrix is calculated as the inverse of the hessian.}
+\details{The variance matrix is calculated as the inverse of the hessian. The inverse of the matrix
+is calculated using the  solve function. If this function  leads to an error in the calculation, the
+inverse is tried to be calculated via its Cholesky decomposition. If this option also fails, 
+the variance matrix is not estimated.}
 
 \value{
   \item{VARbeta }{Variance matrix of the \eqn{\hat \beta} vector.}
