@@ -9,9 +9,9 @@ approximate confidence intervals for \eqn{\lambda(t)}.}
 
 \usage{
 fitPP.fun(covariates = NULL, beta, posE = NULL, inddat = NULL, POTob = NULL, 
-namcovariates = NULL, n = NULL, tind = "TRUE", tim = NULL, maxty='nlminb',
+namcovariates = NULL, n = NULL, tind = "TRUE", tim = NULL, maxty="nlminb",
 method="Nelder-Mead", modCI = "TRUE", CIty = "Transf", clevel = 0.95,
- tit = '', modSim = "FALSE", dplot = TRUE, xlegend = "topleft",
+ tit = "", modSim = "FALSE", dplot = TRUE, xlegend = "topleft",
 lambdaxlim=NULL,lambdaylim=NULL)
 }
 
@@ -46,20 +46,20 @@ By default, a vector 1,...n is considered.}
 
 
    \item{maxty}{Label indicating  the function used to maximize the loglikelihood function.
- If it is 'nlminb'  the function \code{\link{nlminb}} is used (the default option). If it is 'optim'
+ If it is "nlminb"  the function \code{\link{nlminb}} is used (the default option). If it is "optim"
 the function \code{\link{optim}} is used; in this case, the method of optimization 
 can be chosen with the  following argument.}
 
    \item{method}{Label indicating  the algorithm of optimization if 
-argument \code{maxty} is 'optim'. See \code{\link{optim}} for details. The default option
-is 'Nelder-Mead'.}
+argument \code{maxty} is "optim". See \code{\link{optim}} for details. The default option
+is "Nelder-Mead".}
 
   \item{modCI}{Logical flag. If it is TRUE, confidence intervals  
 for \eqn{\lambda(t)} values are calculated.}
 
   \item{CIty}{Label indicating  the method to calculate the approximate
-confidence intervals  for \eqn{\lambda(t)}. It can be 'Delta' for the delta method
-or 'Transf' for transformed asymptotic intervals (default); see \code{\link{CIdelta.fun}} and
+confidence intervals  for \eqn{\lambda(t)}. It can be "Delta" for the delta method
+or "Transf" for transformed asymptotic intervals (default); see \code{\link{CIdelta.fun}} and
 \code{\link{CItran.fun}} for details.}
 
   \item{clevel}{Confidence level of the  confidence intervals.}
@@ -119,6 +119,7 @@ MLE  \eqn{\hat \nu(t)}. See \cite{Casella (2002)} for more details on ML theory 
   \item{LIlambda }{Vector of lower extremes of the CI}
   \item{LUlambda }{Vector of upper extremes of the CI.}
   \item{posE }{Input argument.}
+  \item{covariates }{Input argument. A vector of 1's is added as first column to the input  if argumetn tind=TRUE}
   \item{namcovariates }{Input argument.}
   \item{tit }{Input argument.}
   \item{tind }{Input argument.}
@@ -150,17 +151,17 @@ BarEv<-POTevents.fun(T=BarTxTn$Tx,thres=318,
 	date=cbind(BarTxTn$ano,BarTxTn$mes,BarTxTn$dia))
 
 
-mod1B<-fitPP.fun(tind='TRUE',covariates=covB, 
+mod1B<-fitPP.fun(tind="TRUE",covariates=covB, 
 	posE=BarEv$Px, inddat=BarEv$inddat,
-	tit='BAR Tx; cos, sin, TTx, Txm31, Txm31**2', 
+	tit="BAR Tx; cos, sin, TTx, Txm31, Txm31**2", 
 	beta=c(-100,1,10,0,0,0))
 
 #model fitted  using as input  a list from POTevents.fun and with  confidence intervals 
 tiempoB<-BarTxTn$ano+rep(c(0:152)/153,55)
 
-mod2B<-fitPP.fun(tind='TRUE',covariates=covB, 
+mod2B<-fitPP.fun(tind="TRUE",covariates=covB, 
 	POTob=list(T=BarTxTn$Tx, thres=318),
-	tim=tiempoB, tit='BAR Tx; cos, sin, TTx, Txm31, Txm31**2', 
-	beta=c(-100,1,10,0,0,0),CIty='Delta',modCI=TRUE,
+	tim=tiempoB, tit="BAR Tx; cos, sin, TTx, Txm31, Txm31**2", 
+	beta=c(-100,1,10,0,0,0),CIty="Delta",modCI=TRUE,
 	modSim=TRUE)
 }

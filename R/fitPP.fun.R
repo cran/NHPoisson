@@ -44,6 +44,7 @@ if ((tind==FALSE)&(is.null(covariates)==TRUE))
 stop('Error: Model without covariates and without constant term')
 }
 
+if (is.vector(covariates)) covariates<-matrix(covariates)
 
 if (is.null(covariates)==FALSE)
 {
@@ -114,7 +115,7 @@ npar <- length(fbeta)
 lambdafit <- exp(covariates%*%fbeta )
 
 auxoutput<-list(llik=llik, npar=npar, beta =fbeta, inddat=inddat, 
-lambdafit=lambdafit, posE=posE, namcovariates=namcovariates,
+lambdafit=lambdafit, posE=posE,covariates=covariates, namcovariates=namcovariates,
 tit=tit,tind=tind, t=tim)
 
 if (modCI==TRUE)
@@ -136,7 +137,7 @@ CIlambda<-CIdelta.fun(VARbeta=VARbeta, lambdafit=lambdafit, covariates=covariate
 UIlambda<-CIlambda$UIlambda
 LIlambda<-CIlambda$LIlambda
 auxoutput<-list(llik=llik, npar=npar, beta =fbeta, inddat=inddat, VARbeta=VARbeta,
-lambdafit=lambdafit, LIlambda=LIlambda, UIlambda=UIlambda, posE=posE, 
+lambdafit=lambdafit, LIlambda=LIlambda, UIlambda=UIlambda, posE=posE, covariates=covariates,
 namcovariates=namcovariates,tit=tit,tind=tind, t=tim)
 }
 
@@ -154,6 +155,8 @@ legend(xlegend, legend=c('Fitted intensity', paste('Upper CI',CIty,sep=' '), pas
 lines(tim,lambdafit, lwd=2)
 mtext(paste(tit), outer = TRUE, line = -2,cex=1)
 }
+
+
 return(auxoutput)
 
 }

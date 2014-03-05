@@ -11,7 +11,7 @@ rate over time can be performed optionally.
 }
 
 \usage{
-emplambda.fun(posE, t, lint, plotEmp = TRUE, inddat = NULL, tit = '', 
+emplambda.fun(posE, t, lint, plotEmp = TRUE, inddat = NULL, tit ="", 
 scax = NULL, scay = NULL)}
 
 
@@ -57,7 +57,7 @@ BarEv<-POTevents.fun(T=BarTxTn$Tx,thres=318,
 
 # empirical rate based on overlapping intervals
 emplambdaB<-emplambda.fun(posE=BarEv$Px,inddat=BarEv$inddat, t=c(1:8415), 
-	lint=153,  tit='Barcelona')
+	lint=153,  tit="Barcelona")
 
 
 }

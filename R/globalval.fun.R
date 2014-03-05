@@ -4,7 +4,7 @@ Xvar=NULL,namXvar=NULL, Xvart=NULL,namXvart=NULL,
 h=NULL, typeRes=NULL, typeResLV='Pearson',typeI='Disjoint', nsim=100,
 clevel=0.95,resqqplot=FALSE, nintLP=100, tit='',
 flow=0.5, addlow=FALSE,indgraph=FALSE,scax=NULL, scay=NULL,
-legcex=0.5,ngen=100, cores=NULL, xlegend='topleft')
+legcex=0.5,ngen=100, cores=1, xlegend='topleft')
 {
 if ((is.null(lint))&(typeI=='Overlapping')) stop('Argument lint must be specified for Overlapping intervals')
 if ((is.null(lint))&(is.null(nint))&(typeI=='Overlapping')) stop('one of arguments lint or nint must be specified for Disjoint intervals')

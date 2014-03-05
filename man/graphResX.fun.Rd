@@ -88,11 +88,11 @@ Residual analysis for spatial point processes.
 ##Raw residuals
 
 res<-graphResX.fun(X=rnorm(500),nint=50,list(posE=round(runif(50,1,500)), 
-	lambdafit=runif(500,0,0.2), inddat=rep(1,500)),typeRes='Raw')
+	lambdafit=runif(500,0,0.2), inddat=rep(1,500)),typeRes="Raw")
 
 ##Pearson residuals
 res<-graphResX.fun(X=rnorm(500),nint=50,list(posE=round(runif(50,1,500)), 
-	lambdafit=runif(500,0,0.2), inddat=rep(1,500)),typeRes='Pearson')
+	lambdafit=runif(500,0,0.2), inddat=rep(1,500)),typeRes="Pearson")
 
 
 }

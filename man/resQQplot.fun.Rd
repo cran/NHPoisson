@@ -15,8 +15,8 @@ It calls the auxiliary function \code{resSim.fun}
 
 
 \usage{
-resQQplot.fun(nsim, objres, covariates, clevel = 0.95, cores = NULL, n = 100, 
-tit = '')}
+resQQplot.fun(nsim, objres, covariates, clevel = 0.95, cores = 1, n = 100, 
+tit = "")}
 
 \arguments{
   \item{nsim}{Number of simulations for the calculations.}
@@ -29,7 +29,7 @@ function \code{\link{CalcRes.fun}} or \code{\link{CalcResD.fun}}.}
   \item{clevel}{Confidence level of the  residual envelope.}
 
   \item{cores}{Optional. Number of cores of the computer to be used in the 
-calculations. Default: all cores available in the computer are used.}
+calculations. Default: one core is used.}
 
   \item{n}{Argument  for the function \code{\link{simNHP.fun}} which is called
 by \code{resQQplot.fun}; see that function for details.}
@@ -68,15 +68,15 @@ in each point.}
 
 \examples{
 
-X1<-rnorm(1000)
-X2<-rnorm(1000)
+X1<-rnorm(500)
+X2<-rnorm(500)
 
-aux<-fitPP.fun(tind='TRUE',covariates=cbind(X1,X2), 
-	posE=round(runif(40,1,1000)), inddat=rep(1,1000),
-	tim=c(1:1000), tit='Simulated example', beta=c(1,0,0))
+aux<-fitPP.fun(tind="TRUE",covariates=cbind(X1,X2), 
+	posE=round(runif(40,1,500)), inddat=rep(1,500),
+	tim=c(1:500), tit="Simulated example", beta=c(1,0,0),dplot=FALSE)
 
 auxRes<-CalcResD.fun(obFPP=aux,lint=50)
 
 
-auxqq<-resQQplot.fun(nsim=100,objres=auxRes, covariates=cbind(X1,X2))
+auxqq<-resQQplot.fun(nsim=50,objres=auxRes, covariates=cbind(X1,X2))
 }

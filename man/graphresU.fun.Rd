@@ -11,7 +11,7 @@ versus covariates or potentially influent variables can be graphically analyzed.
 
 
 \usage{graphresU.fun(unires, posE,  Xvariables = NULL, namXv = NULL, flow = 0.5,
- tit = '', addlow = TRUE, indgraph = FALSE)}
+ tit = "", addlow = TRUE, indgraph = FALSE)}
 
 \arguments{
   \item{unires}{Numeric vector of the uniform residuals.}
@@ -74,6 +74,6 @@ X1<-rnorm(500)
 X2<-rnorm(500)
 
 graphresU.fun(unires=runif(30,0,1),posE=round(runif(30,0,500)), 
-	Xvariables=cbind(X1,X2), namXv=c('X1','X2'),tit="Example",flow=0.7)
+	Xvariables=cbind(X1,X2), namXv=c("X1","X2"),tit="Example",flow=0.7)
 
 }

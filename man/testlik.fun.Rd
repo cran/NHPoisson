@@ -28,7 +28,7 @@ of freedom df2-df1,the number of parameters of modG and modR respectively.}
 \item{ModR}{Input argument.} }
 
 
-\seealso{ \code{\link{fitPP.fun}}}
+\seealso{ \code{\link{fitPP.fun}},\code{\link{LRTpv.fun}}}
 
 \references{
 
@@ -48,16 +48,16 @@ covB<-cbind(cos(2*pi*BarTxTn$dia/365), sin(2*pi*BarTxTn$dia/365),
 	BarTxTn$TTx,BarTxTn$Txm31,BarTxTn$Txm31**2)
 
 
-modB<-fitPP.fun(tind='TRUE',covariates=covB, 
+modB<-fitPP.fun(tind="TRUE",covariates=covB, 
 	POTob=list(T=BarTxTn$Tx, thres=318),
-	tim=c(1:8415), tit='BAR Tx; cos, sin, TTx, Txm31, Txm31**2', 
+	tim=c(1:8415), tit="BAR Tx; cos, sin, TTx, Txm31, Txm31**2", 
 	beta=c(-100,1,10,0,0,0),dplot=FALSE,modCI=TRUE,	modSim=TRUE)
 
 
 
-modBR<-fitPP.fun(tind='TRUE',covariates=covB[,1:4], 
+modBR<-fitPP.fun(tind="TRUE",covariates=covB[,1:4], 
 	POTob=list(T=BarTxTn$Tx, thres=318),
-	tim=c(1:8415), tit='BAR Tx; cos, sin, TTx, Txm31', 
+	tim=c(1:8415), tit="BAR Tx; cos, sin, TTx, Txm31", 
 	beta=c(-100,1,10,0,0),dplot=FALSE,modCI=TRUE,	modSim=TRUE)
 
 

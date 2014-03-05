@@ -4,7 +4,7 @@
 \alias{posk.fun}
 
 
-\title{Calculate simulated envelopes}
+\title{Calculates simulated envelopes}
 
 \description{This function calculates a  point estimation and an envelope
 for a  given statistic using a Monte Carlo approach. The statistic must be a function 
@@ -21,7 +21,7 @@ and  calculates the corresponding statistic using the simulated points.}
 
 \usage{
 GenEnv.fun(nsim, lambda, fun.name, fun.args = NULL, clevel = 0.95, n = 100, 
-cores = NULL)}
+cores = 1)}
 
 \arguments{
   \item{nsim}{Number of simulations for the calculations.}
@@ -39,7 +39,7 @@ cores = NULL)}
 called by \code{GenEnv.fun}; see that function for details.}
 
   \item{cores}{Optional.  Number of cores of the computer
-to be used in the calculations. Default: all cores available in the computer are used.}
+to be used in the calculations. Default: one core is used.}
 
 }
 
@@ -51,6 +51,7 @@ to be used in the calculations. Default: all cores available in the computer are
   \item{valsup}{Upper value of the simulated CI.}
   \item{lambda}{Input argument.}
   \item{nsim}{Input argument.}
+  \item{nsimval}{Number of valid simulations (used in the calculation of the CI and the point estimation).}
 }
 
 
@@ -63,6 +64,6 @@ to be used in the calculations. Default: all cores available in the computer are
 
 ##posk.fun(x, k) is a function that returns the value in the row k of vector x.
 lambdat<-runif(1000,0.01,0.02)
-aux<-GenEnv.fun(lambda=lambdat,fun.name='posk.fun',fun.args=2,nsim=100)
+aux<-GenEnv.fun(lambda=lambdat,fun.name="posk.fun",fun.args=2,nsim=100)
 }
 

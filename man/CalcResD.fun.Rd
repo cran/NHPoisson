@@ -129,9 +129,9 @@ X1<-rnorm(1000)
 X2<-rnorm(1000)
 
 
-modE<-fitPP.fun(tind='TRUE',covariates=cbind(X1,X2), 
+modE<-fitPP.fun(tind="TRUE",covariates=cbind(X1,X2), 
 	posE=round(runif(40,1,1000)), inddat=rep(1,1000),
-	tim=c(1:1000), tit='Simulated example',beta=c(1,0,0),
+	tim=c(1:1000), tit="Simulated example",beta=c(1,0,0),
 	dplot=FALSE,modCI=FALSE,modSim=TRUE)
 
 #Residuals, based on 20 disjoint intervals of length 50, from the fitted NHPP modE  

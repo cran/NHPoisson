@@ -17,10 +17,10 @@ typeI='Disjoint', only one of the arguments lint or  nlint must be specified.}
 \usage{
 globalval.fun(obFPP, lint = NULL, nint = NULL, covariates, Xvar = NULL, 
 namXvar = NULL, Xvart = NULL, namXvart = NULL,  h = NULL, typeRes = NULL,
-typeResLV='Pearson',typeI = "Disjoint", nsim = 100, clevel = 0.95, 
-resqqplot = FALSE, nintLP = 100, tit = '', flow = 0.5, addlow = FALSE, 
+typeResLV="Pearson",typeI = "Disjoint", nsim = 100, clevel = 0.95, 
+resqqplot = FALSE, nintLP = 100, tit = "", flow = 0.5, addlow = FALSE, 
 indgraph = FALSE, scax = NULL, scay = NULL, legcex = 0.5, ngen = 100, 
-cores = NULL, xlegend = "topleft")
+cores = 1, xlegend = "topleft")
 }
 
 \arguments{
@@ -100,7 +100,7 @@ in the fitted and empirical  rate plot. An adequate range is selected by default
 
 
   \item{cores}{Optional. Number of cores of the computer
-to be used in the calculations. Default: all cores available in the computer are used.}
+to be used in the calculations. Default: one core is used.}
 
 
   \item{xlegend}{Argument xlegend used in the call of the function 
@@ -128,19 +128,19 @@ covB<-cbind(cos(2*pi*BarTxTn$dia/365), sin(2*pi*BarTxTn$dia/365),
 	BarTxTn$TTx,BarTxTn$Txm31,BarTxTn$Txm31**2)
 
 
-modB<-fitPP.fun(tind='TRUE',covariates=covB, 
+modB<-fitPP.fun(tind="TRUE",covariates=covB, 
 	POTob=list(T=BarTxTn$Tx, thres=318),
-	tit='BAR Tx; cos, sin, TTx, Txm31, Txm31**2', 
-	beta=c(-100,1,10,0,0,0),CIty='Transf',modCI=TRUE,
+	tit="BAR Tx; cos, sin, TTx, Txm31, Txm31**2", 
+	beta=c(-100,1,10,0,0,0),CIty="Transf",modCI=TRUE,
 	modSim=TRUE,dplot=FALSE)
 
-aux<-globalval.fun(obFPP=modB,lint=153,	covariates=covB,typeI='Disjoint', 
-	typeRes='Raw',typeResLV='Raw',	resqqplot=FALSE)
+aux<-globalval.fun(obFPP=modB,lint=153,	covariates=covB,typeI="Disjoint", 
+	typeRes="Raw",typeResLV="Raw",	resqqplot=FALSE)
 
 ##If typeRes and typeResLV are not specified, Pearson residuals are calculated
 ##by default.
 
-aux<-globalval.fun(obFPP=modB,lint=153,	covariates=covB,typeI='Disjoint', 
+aux<-globalval.fun(obFPP=modB,lint=153,	covariates=covB,typeI="Disjoint", 
 	resqqplot=FALSE)
 
 }

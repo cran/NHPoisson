@@ -10,7 +10,7 @@ versus time or other variables which are monotonous functions.}
 \usage{
 graphres.fun(objres = NULL, typeRes = "Raw", t = NULL, res = NULL, lint = NULL, 
 posE = NULL, fittedlambda = NULL, typeI = "Disjoint", Xvariables = NULL, 
-namXv = NULL, indgraph = FALSE, addlow = FALSE, lwd = 2, tit = '', flow = 0.5, 
+namXv = NULL, indgraph = FALSE, addlow = FALSE, lwd = 2, tit = "", flow = 0.5, 
 xlegend = "topleft", legcex = 0.5)}
 
 \arguments{
@@ -18,8 +18,8 @@ xlegend = "topleft", legcex = 0.5)}
 the value of typeRes. For example, the output list from the functions 
 \code{\link{CalcRes.fun}} or \code{\link{CalcResD.fun}}; see those functions for details.}
 
-  \item{typeRes}{Label indicating the type of residuals ('Raw' or any type of scaled 
-residuals such as 'Pearson').}
+  \item{typeRes}{Label indicating the type of residuals ("Raw" or any type of scaled 
+residuals such as "Pearson").}
 
   \item{t}{Optional. Time vector of the PP observation period.}
 
@@ -28,12 +28,12 @@ residuals such as 'Pearson').}
   \item{lint}{Optional. Length of the  intervals used to calculate the residuals.}
 
   \item{posE}{Optional. Numeric vector of the PP occurrence times. 
-Only used when typeI='Overlapping'.}
+Only used when typeI="Overlapping".}
 
  \item{fittedlambda}{Optional. Vector of the cumulative  fitted PP intensity 
-over the intervals. Used  to calculate the envelopes when typeRes='Raw'.}
+over the intervals. Used  to calculate the envelopes when typeRes="Raw".}
 
-  \item{typeI}{Label indicating  the type ('Overlapping' or 'Disjoint') of intervals.}
+  \item{typeI}{Label indicating  the type ("Overlapping" or "Disjoint") of intervals.}
 
   \item{Xvariables}{Optional. Matrix  of the variables for
  the residual plots (each column is a variable).}
@@ -111,23 +111,23 @@ Collett, D. (1994). Modelling survival data in medical research. Chapman & Hall.
 
 X1<-c(1:1000)**0.5
 
-modE<-fitPP.fun(tind='TRUE',covariates=cbind(X1), 
+modE<-fitPP.fun(tind="TRUE",covariates=cbind(X1), 
 	posE=round(runif(40,1,1000)), inddat=rep(1,1000),
-	tim=c(1:1000), tit='Simulated example', beta=c(1,0),
+	tim=c(1:1000), tit="Simulated example", beta=c(1,0),
 	modSim = TRUE, dplot = FALSE)
 
 ResDE<-CalcResD.fun(obFPP=modE,lint=50)
-graphres.fun(objres=ResDE, typeRes='Raw', Xvariables=cbind(X1),
-	namXv=c('X1'), indgraph=FALSE,addlow=TRUE,tit="Example")
+graphres.fun(objres=ResDE, typeRes="Raw", Xvariables=cbind(X1),
+	namXv=c("X1"), indgraph=FALSE,addlow=TRUE,tit="Example")
 
 
 ##Example using the set of arguments res, t and fittedlambda as input
-##In this case, if typeI='Disjoint', only values of t, fittedlambda and Xvariables 
+##In this case, if typeI="Disjoint", only values of t, fittedlambda and Xvariables 
 ##in the midpoint of the intervals must be provided
 
 X1<-c(1:500)**0.5
 graphres.fun(res=rnorm(50),posE=round(runif(50,1,500)),
 	fittedlambda=runif(500,0,1)[seq(5,495,10)],
-	t=seq(5,495,10), typeRes='Raw', typeI='Disjoint',Xvariables=X1[seq(5,495,10)],
-	namXv=c('X1'),tit="Example 2",lint=10)
+	t=seq(5,495,10), typeRes="Raw", typeI="Disjoint",Xvariables=X1[seq(5,495,10)],
+	namXv=c("X1"),tit="Example 2",lint=10)
 }

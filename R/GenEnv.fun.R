@@ -1,22 +1,27 @@
 GenEnv.fun <-
 function(nsim,lambda, fun.name,fun.args=NULL,clevel=0.95,n=100,
-cores=NULL)
+cores=1)
 {
-if (is.null(cores)) cores<-detectCores()
 cl<-makeCluster(cores)
 clusterExport(cl, objects(, envir = .GlobalEnv))
 simval <- parSapply(cl, c(1:nsim), FUN=funSim.fun,
 lambda, fun.name=fun.name,fun.args=fun.args,n=n)
 stopCluster(cl)
 
+
+simval<-simval[complete.cases(simval)]
+l1<-length(simval)
 simval<-matrix(simval, ncol=1)
-valmed<-apply(simval,MARGIN=2, FUN=mean, na.rm=TRUE)
-valinf<-apply(simval,MARGIN=2, FUN=quantile,p=1-clevel, na.rm=TRUE) 
-valsup<-apply(simval,MARGIN=2, FUN=quantile,p=clevel, na.rm=TRUE)
+valmed<-apply(simval,MARGIN=2, FUN=mean)
+valinf<-apply(simval,MARGIN=2, FUN=quantile,p=1-clevel) 
+valsup<-apply(simval,MARGIN=2, FUN=quantile,p=clevel)
 
 cat('Lower interval: ', valinf, fill=T)
 cat('Mean value: ', valmed, fill=T)
 cat('Upper interval: ', valsup, fill=T)
+cat('Number of valid simulations: ', l1, fill=T)
 
-return(list(valmed=valmed,valinf=valinf,valsup=valsup, lambda=lambda, nsim=nsim))
+obj<- list(valmed=valmed,valinf=valinf,valsup=valsup, lambda=lambda, nsim=nsim, nsimval=l1)
+
+return(obj)
 }

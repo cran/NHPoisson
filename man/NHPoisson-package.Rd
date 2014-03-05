@@ -16,8 +16,8 @@ permits random generation of NHPP.}
 \tabular{ll}{
 Package: \tab NHPoisson\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2012-03-02\cr
+Version: \tab 2.1\cr
+Date: \tab 2014-03-05\cr
 License: \tab GPL (>=2)  \cr
 }}
 

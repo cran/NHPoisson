@@ -12,7 +12,7 @@ see \code{\link{graphResX.fun}} for details.}
 
 \usage{
 graphResCov.fun(Xvar, nint, obFPP, h = NULL, typeRes = "Pearson", namX = NULL, 
-indgraph = "FALSE", tit = '')}
+indgraph = "FALSE", tit = "")}
 
 \arguments{
   \item{Xvar}{Matrix of variables (each column is a variable).}
@@ -81,6 +81,6 @@ X2<-rnorm(500)
 
 res<-graphResCov.fun(obFPP=list(posE=round(runif(50,1,500)), inddat=rep(1,500),
  lambdafit=runif(500,0,0.2)), X=cbind(X1,X2), nint=50,  
-	typeRes='Raw',namX=c('X1','X2'),indgraph='FALSE')
+	typeRes="Raw",namX=c("X1","X2"),indgraph="FALSE")
 
 }

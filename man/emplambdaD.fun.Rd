@@ -10,7 +10,7 @@ rate over time can be performed optionally. }
 
 
 \usage{emplambdaD.fun(posE, t, lint=NULL, nint = NULL, plotEmp = TRUE, inddat = NULL, 
-tit = '', scax = NULL, scay = NULL)}
+tit = "", scax = NULL, scay = NULL)}
 
 
 \details{The  intervals  can be specified either
