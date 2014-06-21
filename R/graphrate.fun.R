@@ -10,7 +10,7 @@ if (is.null(objres)=='FALSE')
 fittedlambda<-objres$fittedlambda
 emplambda<-objres$emplambda
 typeI<-objres$typeI
-      t<-objres$obFPP$t
+      t<-objres$mlePP@t
 if (typeI=='Disjoint') t<-t[objres$pm]
 lint<-objres$lint
 }

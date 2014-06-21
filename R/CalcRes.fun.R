@@ -1,23 +1,23 @@
 CalcRes.fun <-
-function(obFPP, lint, h=NULL, typeRes=NULL)
+function(mlePP, lint, h=NULL, typeRes=NULL)
 {
 
-n<-length(obFPP$lambdafit)
-t<-obFPP$t
-tit<-obFPP$tit
+n<-length(mlePP@lambdafit)
+t<-mlePP@t
+tit<-mlePP@tit
 if (is.null(h)) 
 {
-h<-1/obFPP$lambdafit**0.5
+h<-1/mlePP@lambdafit**0.5
 typeRes<-'Pearson'
 }
 if (is.null(typeRes)) stop('Please indicate argument typeRes')
 
-inddat<-obFPP$inddat
+inddat<-mlePP@inddat
 inddat[inddat==0]<-NA
-posE<-obFPP$posE
-lambdafit<-obFPP$lambdafit*h*inddat
+posE<-mlePP@posE
+lambdafit<-mlePP@lambdafit*h*inddat
 
-lambdafitR<-obFPP$lambdafit*inddat
+lambdafitR<-mlePP@lambdafit*inddat
 indice<-rep(0,n)
 indice[posE]<-1*h[posE]
 indice<-indice*inddat
@@ -68,6 +68,6 @@ ScaRes<-emplambda-sumalfit
 RawRes<-emplambdaR-sumalfitR
 return(list(RawRes=RawRes,ScaRes=list(ScaRes=ScaRes,typeRes=typeRes),
 emplambda=emplambdaR,fittedlambda=sumalfitR,lintV=lintV,lint=lint,
-typeI='Overlapping',h=h,obFPP=obFPP))
+typeI='Overlapping',h=h,mlePP=mlePP))
 
 }

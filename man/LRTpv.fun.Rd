@@ -1,22 +1,22 @@
 \name{LRTpv.fun}
 \alias{LRTpv.fun}
 
-\title{Calculates the p-value of a likelihood ratio test for each covariate in the NHPP}
+\title{Calculate the p-value of a likelihood ratio test for each covariate in the model}
  
-\description{This function calculates, for each covariate included in the NHPP,  the p-value 
+\description{This function calculates, for each covariate in the model (except the intercept),  the p-value 
 of a likelihood  ratio test comparing  the  original fitted NHPP with the model excluding 
-a covariate from the linear predictor.}
+that covariate from the linear predictor.}
 
 \usage{
-LRTpv.fun(fitPPobj)
+LRTpv.fun(mlePP)
 }
 
 \arguments{
-   \item{fitPPobj}{The model  to be analyzed. Usually the output list from the function \code{\link{fitPP.fun}};  
-it must have at least  five elements called:  covariates, tind, posE, inddat and beta }
+   \item{mlePP}{An object of class \code{\link{mlePP-class}}; usually,
+the output  from \code{\link{fitPP.fun}}. The fitted model cannot include fixed parameters.}
 }
 
-\details{If the model has an intercept, a LRT is  carried for all the covariates  in the linear predictor
+\details{A LRT is  carried for all the covariates  in the linear predictor
 except the intercept. If the model has not an intercept and there is only one covariate, no test can be carried out.
 }
 
@@ -27,25 +27,20 @@ except the intercept. If the model has not an intercept and there is only one co
 
 
 
-\seealso{ \code{\link{fitPP.fun}}, \code{\link{testlik.fun}}}
+\seealso{ \code{\link{fitPP.fun}}, \code{\link{testlik.fun}}, \code{\link{dropAIC.fun}}, \code{\link{addAIC.fun}}}
 
 \examples{
-
-
 data(BarTxTn)
 covB<-cbind(cos(2*pi*BarTxTn$dia/365), sin(2*pi*BarTxTn$dia/365), 
 	BarTxTn$TTx,BarTxTn$Txm31,BarTxTn$Txm31**2)
 BarEv<-POTevents.fun(T=BarTxTn$Tx,thres=318, 
 	date=cbind(BarTxTn$ano,BarTxTn$mes,BarTxTn$dia))
 
-
-
-mod1B<-fitPP.fun(tind="TRUE",covariates=covB, 
+mod1B<-fitPP.fun(tind=TRUE,covariates=covB, 
 	posE=BarEv$Px, inddat=BarEv$inddat,
 	tit="BAR Tx; cos, sin, TTx, Txm31, Txm31**2", 
-	beta=c(-100,1,10,0,0,0),dplot=FALSE, modCI=FALSE)
+	start=list(b0=-100,b1=1,b2=10,b3=0,b4=0,b5=0),dplot=FALSE, modCI=FALSE)
 
 LRTpv.fun(mod1B)
-
 }
 

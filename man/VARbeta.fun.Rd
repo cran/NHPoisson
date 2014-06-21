@@ -1,10 +1,10 @@
 \name{VARbeta.fun}
 \alias{VARbeta.fun}
 
-\title{Calculate the variance matrix of the \eqn{\hat \beta} vector.}
+\title{Calculate the covariance matrix of the \eqn{\hat \beta} vector.}
 
-\description{This function estimates  the variance matrix of the MLE of the vector of 
-\eqn{\beta} parameters, using the asymptotic distribution of the MLE.}
+\description{This function estimates  the covariance matrix of the ML estimators of the  
+\eqn{\beta} parameters, using the asymptotic distribution and properties of the ML estimators.}
 
 \usage{VARbeta.fun(covariates, lambdafit)}
 
@@ -13,13 +13,15 @@
   \item{lambdafit}{Numeric vector, the fitted PP intensity \eqn{\hat \lambda(t)}.}
 }
 
-\details{The variance matrix is calculated as the inverse of the hessian. The inverse of the matrix
+\details{The covariance matrix is calculated as the inverse of the  negative of the hessian matrix. The inverse of the matrix
 is calculated using the  solve function. If this function  leads to an error in the calculation, the
-inverse is tried to be calculated via its Cholesky decomposition. If this option also fails, 
-the variance matrix is not estimated.}
+inverse is calculated via its Cholesky decomposition. If this option also fails, 
+the covariance matrix is not estimated and a  matrix  of dimension \eqn{0 \times 0} is returned. }
 
 \value{
-  \item{VARbeta }{Variance matrix of the \eqn{\hat \beta} vector.}
+  \item{VARbeta }{Coariance matrix of the \eqn{\hat \beta} vector.  It has
+ an attribute, called 'CalMethod' which shows the method  used to calculate the  inverse of the matrix: 
+'Solve function', 'Cholesky' or 'Not possible'.}
 }
 
 \note{The function \code{\link{fitPP.fun}} calls this function.}

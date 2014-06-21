@@ -111,12 +111,12 @@ Collett, D. (1994). Modelling survival data in medical research. Chapman & Hall.
 
 X1<-c(1:1000)**0.5
 
-modE<-fitPP.fun(tind="TRUE",covariates=cbind(X1), 
+modE<-fitPP.fun(tind=TRUE,covariates=cbind(X1), 
 	posE=round(runif(40,1,1000)), inddat=rep(1,1000),
-	tim=c(1:1000), tit="Simulated example", beta=c(1,0),
+	tim=c(1:1000), tit="Simulated example", start=list(b0=1,b1=0),
 	modSim = TRUE, dplot = FALSE)
 
-ResDE<-CalcResD.fun(obFPP=modE,lint=50)
+ResDE<-CalcResD.fun(mlePP=modE,lint=50)
 graphres.fun(objres=ResDE, typeRes="Raw", Xvariables=cbind(X1),
 	namXv=c("X1"), indgraph=FALSE,addlow=TRUE,tit="Example")
 

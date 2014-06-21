@@ -7,12 +7,11 @@
 the occurrence points  
 \eqn{t^{H}_i} of a HPP  of rate 1.}
 
-\usage{transfH.fun(obFPP)}
+\usage{transfH.fun(mlePP)}
 
 \arguments{
-  \item{obFPP}{A list with (at least)  elements posE, lambdafit and inddat. 
-For example, the output list from \code{\link{fitPP.fun}}; 
-see this function for details.}
+  \item{mlePP}{An object of class \code{\link{mlePP-class}}; usually,
+the output  from \code{\link{fitPP.fun}}.}
 }
 
 
@@ -20,9 +19,9 @@ see this function for details.}
 
 \item{posEH}{Numeric vector of the transformed occurrence times 
 of the HPP.}
-\item{posE}{Element of the  input argument obFPP.}
-\item{lambdafit}{Element of the  input argument obFPP.}
-\item{inddat}{Element of the  input argument obFPP.}
+\item{posE}{Slot of the  input argument mlePP.}
+\item{lambdafit}{Slot of the  input argument mlePP.}
+\item{inddat}{Slot of the  input argument mlePP.}
 }
 
 \details{Transformation of the NHPP points \eqn{t^{NH}_i}  into 
@@ -45,6 +44,11 @@ Cox, D.R., Isham, V., 1980. \emph{Point Processes}. Chapman and Hall.
 
 \examples{
 
-dat<-list(posE=runif(50, 0,500), lambdafit=rep(0.01,500), inddat=rep(1,500))
-posEH<-transfH.fun(dat)
+X1<-rnorm(500)
+X2<-rnorm(500)
+auxmlePP<-fitPP.fun(posE=round(runif(50,1,500)), inddat=rep(1,500),
+	covariates=cbind(X1,X2),start=list(b0=1,b1=0,b2=0))
+
+
+posEH<-transfH.fun(auxmlePP)
 }

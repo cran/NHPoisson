@@ -78,12 +78,12 @@ graphrate.fun(emplambda=runif(50,0,1), fittedlambda=runif(50,0,1),
 
 X1<-rnorm(1000)
 
-modE<-fitPP.fun(tind="TRUE",covariates=cbind(X1), 
+modE<-fitPP.fun(tind=TRUE,covariates=cbind(X1), 
 	posE=round(runif(40,1,1000)), inddat=rep(1,1000),
-	tim=c(1:1000), tit="Simulated example", beta=c(1,0),
+	tim=c(1:1000), tit="Simulated example", start=list(b0=1,b1=0),
 	modCI=FALSE,modSim=TRUE,dplot=FALSE)
 
-ResDE<-CalcResD.fun(obFPP=modE,lint=50)
+ResDE<-CalcResD.fun(mlePP=modE,lint=50)
 
 graphrate.fun(ResDE, tit="Example")
 

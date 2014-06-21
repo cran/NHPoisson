@@ -1,17 +1,17 @@
 resQQplot.fun <-
 function(nsim,objres, covariates,clevel=0.95,cores=1,
-n=100, tit='')
+n=100, tit="")
 {
 
 typeI<-objres$typeI
 typeRes<-objres$ScaRes$typeRes
 fittedlambda<-objres$fittedlambda
 emplambda<-objres$emplambda
-lambda<-objres$obFPP$lambdafit
-beta<-objres$obFPP$beta
-tind<-objres$obFPP$tind
-if (is.null(tit)) tit<-objres$obFPP$tit
-t<-objres$obFPP$t
+lambda<-objres$mlePP@lambdafit
+beta<-as.list(objres$mlePP@coef)
+tind<-objres$mlePP@tind
+if (is.null(tit)|(tit=="")) tit<-objres$mlePP@tit
+t<-objres$mlePP@t
 h<-objres$res
 lint<-objres$lint
 if (is.null(t)) t<-c(1:length(lambda))
@@ -20,7 +20,9 @@ else res<-objres$ScaRes$ScaRes
 
 cl<-makeCluster(cores)
 clusterExport(cl, c('resSim.fun','simNHP.fun','buscar','fitPP.fun','CalcResD.fun','CalcRes.fun'))
+
 writeLines('Calculating...',sep=' ')
+
 Mres <- parSapply(cl, c(1:nsim), FUN=resSim.fun,lambda=lambda, 
 covariates=covariates, beta=beta, lint=lint, t=t, tind=tind, typeI=typeI, typeRes=typeRes,h=h, n=n)
 stopCluster(cl)
@@ -41,5 +43,5 @@ points(resmed[marca==0],res[marca==0],pch=16, cex=0.6,col='red')
 lines(resmed[aux], resmed[aux])
 lines(resmed[aux], ressup[aux], col='blue')
 lines(resmed[aux], resinf[aux], col='blue')
-return(list(resmed=resmed,ressup=ressup,resinf=resinf,objres=objres,nsim=nsim))
+return(list(resmed=resmed,ressup=ressup,resinf=resinf,nsim=nsim,objres=objres))
 }

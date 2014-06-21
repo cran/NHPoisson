@@ -1,45 +1,31 @@
 LRTpv.fun <-
-function(fitPPobj)
+function(mlePP)
 {
-	covariates<-fitPPobj$covariates
+	covariates<-mlePP@covariates
 	ncov<-dim(covariates)[2]
 	LRTpv<-NULL
-	ncov<-dim(covariates)[2]
-	if (fitPPobj$tind==TRUE)
+	tind<-mlePP@tind
+	if (ncov>(tind==FALSE)) #if there is an intercept ncov can be 1 but otherwise must be at least 2
 	{
-		covariates<-covariates[,2:ncov]
-		ncov<-ncov-1#1 is substracted for the intercept
+
 		for (j in c(1:ncov))
 		{
-
-			    llikR<-fitPP.fun(covariates=covariates[,-j], beta=fitPPobj$beta[-(j+1)],posE=fitPPobj$posE, inddat=fitPPobj$inddat,
-					modCI=FALSE,modSim=TRUE, dplot=FALSE)$llik
-			    difdev <- 2*(fitPPobj$llik - llikR)
-     			    LRTpv[j]<-1-pchisq(difdev, 1)
+			llikR<--update(mlePP, covariates=covariates[,-j], start=as.list(mlePP@coef[-(j+(tind==TRUE))]),
+			modCI=FALSE,modSim=TRUE, dplot=FALSE)@min
+                  difdev <- 2*(-mlePP@min - llikR)
+     			LRTpv[j]<-1-pchisq(difdev, 1)
 		}
-		
 	}
-	else
-	{
-		if (ncov>1)
-		{
-		for (j in c(1:ncov))
-		{
+	else stop('No test can be carried out since there is  not enough covariates')
 
-			    llikR<-fitPP.fun(covariates=covariates[,-j], beta=fitPPobj$beta[-(j)],posE=fitPPobj$posE, inddat=fitPPobj$inddat,
-					modCI=FALSE,modSim=TRUE, dplot=FALSE,tind=FALSE)$llik
-			    difdev <- 2*(fitPPobj$llik - llikR)
-     			    LRTpv[j]<-1-pchisq(difdev, 1)
-		}
-		}
-		else stop('No test can be carried out since there is only one covariate and no intercept')
-
-	}
-	namcovariates<-fitPPobj$namcovariates	
+	namcovariates<-dimnames(mlePP@covariates)[[2]]
 	if (is.null(namcovariates)) namcovariates<-paste('Covariate',c(1:ncov))
 	LRTpv<-matrix(LRTpv,ncol=1,dimnames=list(namcovariates,'p-values'))
 
+      cat(fill=T)
+      cat('  The p-values of the LRT comparing the initial model and the model without the covariate ',  fill=TRUE)
 	print(round(LRTpv,3))
 	return(LRTpv)
 
 }
+

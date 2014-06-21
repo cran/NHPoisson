@@ -1,10 +1,10 @@
 graphResCov.fun <-
-function(Xvar, nint,obFPP, h=NULL, typeRes='Pearson',
+function(Xvar, nint,mlePP, h=NULL, typeRes='Pearson',
 namX=NULL, indgraph='FALSE', tit='')
 {
 Xvar<-as.matrix(Xvar)
 n<-dim(Xvar)[1]
-if (is.null(tit)) tit<-obFPP$tit
+if (is.null(tit)) tit<-mlePP@tit
 
 
 mXres<-NULL
@@ -18,7 +18,7 @@ iXv<-1
 while (iXv<=nXv)
 {
 dev.new()
-auxX<-graphResX.fun( X=Xvar[,iXv],nint=nint,obFPP=obFPP,
+auxX<-graphResX.fun( X=Xvar[,iXv],nint=nint,mlePP=mlePP,
 h=h,typeRes=typeRes, namX=namX[iXv])
 mXres<-cbind(mXres, auxX$Xres)
 mXm<-cbind(mXm, auxX$Xm)
@@ -34,7 +34,7 @@ if (indgraph==FALSE)
 dev.new()
 par(mfrow=c(2,2))
 
-auxX<-graphResX.fun(X=Xvar[,1], nint=nint, obFPP=obFPP,
+auxX<-graphResX.fun(X=Xvar[,1], nint=nint, mlePP=mlePP,
 typeRes=typeRes, namX=namX[1])
 mXres<-cbind(mXres, auxX$Xres)
 mXm<-cbind(mXm, auxX$Xm)
@@ -52,7 +52,7 @@ dev.new()
 par(mfrow=c(2,2))
 }
 
-auxX<-graphResX.fun(X=Xvar[,iXv], nint=nint,obFPP=obFPP,
+auxX<-graphResX.fun(X=Xvar[,iXv], nint=nint,mlePP=mlePP,
 typeRes=typeRes, namX=namX[iXv])
 mXres<-cbind(mXres, auxX$Xres)
 mXm<-cbind(mXm, auxX$Xm)
@@ -66,6 +66,6 @@ mtext(paste(typeRes, " residuals. Number of intervals:  ",nint, sep=' '), outer 
 }
 
 
-return(list(mXres=mXres,mXm=mXm,mXpc=mXpc,nint=nint, obFPP=obFPP))
+return(list(mXres=mXres,mXm=mXm,mXpc=mXpc,nint=nint, mlePP=mlePP))
 
 }

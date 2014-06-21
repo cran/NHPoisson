@@ -15,7 +15,7 @@ if (typeRes=='Raw') {res<-objres$RawRes}
 else {res<-objres$ScaRes$ScaRes
 typeRes<-objres$ScaRes$typeRes}
 typeI<-objres$typeI
-            t<-objres$obFPP$t
+            t<-objres$mlePP@t
 if (typeI=='Disjoint') 
 {
 t<-t[objres$pm]
@@ -23,7 +23,7 @@ Xvariables<-Xvariables[objres$pm,]
 }
 lint<-objres$lintV
 fittedlambda<-objres$fittedlambda
-posE<-objres$obFPP$posE
+posE<-objres$mlePP@posE
 
 }
 if (is.null(Xvariables)) nXv<-0

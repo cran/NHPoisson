@@ -11,7 +11,7 @@ for a set of variables. The function
 see \code{\link{graphResX.fun}} for details.}
 
 \usage{
-graphResCov.fun(Xvar, nint, obFPP, h = NULL, typeRes = "Pearson", namX = NULL, 
+graphResCov.fun(Xvar, nint, mlePP, h = NULL, typeRes = "Pearson", namX = NULL, 
 indgraph = "FALSE", tit = "")}
 
 \arguments{
@@ -20,8 +20,8 @@ indgraph = "FALSE", tit = "")}
   \item{nint}{Number of intervals each  covariate  is divided into to perform
  the lurking variable plot.}
 
-  \item{obFPP}{A list with (at least) elements posE, inddat and lambdafit; for example,
-the output list from \code{\link{fitPP.fun}}, see that function for details.}
+  \item{mlePP}{An object of class \code{\link{mlePP-class}}; usually,
+the output  from \code{\link{fitPP.fun}}.}
 
   \item{typeRes}{Label indicating the type of residuals ('Raw' or any type of 
 scaled residuals such as 'Pearson') used in the plots.}
@@ -29,7 +29,7 @@ scaled residuals such as 'Pearson') used in the plots.}
   \item{h}{Optional. Weight function  used to calculate the scaled residuals (if
 typeRes is not equal to 'Raw'). By default,  Pearson residuals with 
 \eqn{h(t)=1/\sqrt{\hat \lambda(t)}} are calculated. \eqn{\hat \lambda(t)} is provided
-by element lambdafit in obFPP.}
+by element lambdafit in mlePP.}
 
   \item{namX}{Optional. Vector of  the names of the variables in Xvar.}
 
@@ -48,7 +48,7 @@ the  mean values of a variable in each interval).}
   \item{mXpc}{Matrix of the quantiles that define the intervals of each variable
 (each column contains the  quantiles of one variable).}
   \item{nint}{Input argument.}
-  \item{obFPP}{Input argument.}
+  \item{mlePP}{Input argument.}
 }
 
 
@@ -72,15 +72,18 @@ Residual analysis for spatial point processes.
 
 
 
-#Simulated process without any relationship with variables X1 and X2
+#Simulated process without any relationship with variables Y1 and Y2
 #The plots are performed dividing the  variables into  50 intervals
 #Raw residuals. 
 
 X1<-rnorm(500)
 X2<-rnorm(500)
+auxmlePP<-fitPP.fun(posE=round(runif(50,1,500)), inddat=rep(1,500),
+	covariates=cbind(X1,X2),start=list(b0=1,b1=0,b2=0))
 
-res<-graphResCov.fun(obFPP=list(posE=round(runif(50,1,500)), inddat=rep(1,500),
- lambdafit=runif(500,0,0.2)), X=cbind(X1,X2), nint=50,  
-	typeRes="Raw",namX=c("X1","X2"),indgraph="FALSE")
+Y1<-rnorm(500)
+Y2<-rnorm(500)
+res<-graphResCov.fun(mlePP=auxmlePP, Xvar=cbind(Y1,Y2), nint=50,  
+	typeRes="Raw",namX=c("Y1","Y2"),indgraph="FALSE")
 
 }

@@ -10,12 +10,10 @@ other (the alternative model ModG).}
 \usage{ testlik.fun(ModG, ModR) }
 
 \arguments{
-  \item{ModG}{A list with (at least) elements llik, npar, and optionally tit,
- which  describes the fitted general model. For example, the output list
- from \code{\link{fitPP.fun}}, see that function for details.}
-  \item{ModR}{A list with (at least) elements llik, npar, and optionally tit,
- which  describes the fitted reduced model. For example, the output
-list from \code{\link{fitPP.fun}}, see that function for details.}}
+  \item{ModG}{An object of class \code{\link{mlePP-class}}; usually,
+the output  from \code{\link{fitPP.fun}}.}
+  \item{ModR}{An object of class \code{\link{mlePP-class}}; usually,
+the output  from \code{\link{fitPP.fun}}.}}
 
 \details{The test statistic is twice the difference in the log-likelihoods 
 of the models.
@@ -48,20 +46,20 @@ covB<-cbind(cos(2*pi*BarTxTn$dia/365), sin(2*pi*BarTxTn$dia/365),
 	BarTxTn$TTx,BarTxTn$Txm31,BarTxTn$Txm31**2)
 
 
-modB<-fitPP.fun(tind="TRUE",covariates=covB, 
+modB<-fitPP.fun(tind=TRUE,covariates=covB, 
 	POTob=list(T=BarTxTn$Tx, thres=318),
 	tim=c(1:8415), tit="BAR Tx; cos, sin, TTx, Txm31, Txm31**2", 
-	beta=c(-100,1,10,0,0,0),dplot=FALSE,modCI=TRUE,	modSim=TRUE)
+	start=list(b0=-100,b1=1,b2=10,b3=0,b4=0,b5=0),dplot=FALSE,modCI=TRUE,	modSim=TRUE)
 
 
 
-modBR<-fitPP.fun(tind="TRUE",covariates=covB[,1:4], 
+modBR<-fitPP.fun(tind=TRUE,covariates=covB[,1:4], 
 	POTob=list(T=BarTxTn$Tx, thres=318),
 	tim=c(1:8415), tit="BAR Tx; cos, sin, TTx, Txm31", 
-	beta=c(-100,1,10,0,0),dplot=FALSE,modCI=TRUE,	modSim=TRUE)
+	start=list(b0=-100,b1=1,b2=10,b3=0,b4=0),dplot=FALSE,modCI=TRUE,	modSim=TRUE)
 
 
-aux<-testlik.fun(ModG=modB,ModR=list(llik=modBR$llik,npar=modBR$npar))
+aux<-testlik.fun(ModG=modB,ModR=modBR)
 
 
 }

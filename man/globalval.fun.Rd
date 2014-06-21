@@ -15,7 +15,7 @@ Optionally, it also performs a  residual QQplot.}
 typeI='Disjoint', only one of the arguments lint or  nlint must be specified.}
 
 \usage{
-globalval.fun(obFPP, lint = NULL, nint = NULL, covariates, Xvar = NULL, 
+globalval.fun(mlePP, lint = NULL, nint = NULL, covariates, Xvar = NULL, 
 namXvar = NULL, Xvart = NULL, namXvart = NULL,  h = NULL, typeRes = NULL,
 typeResLV="Pearson",typeI = "Disjoint", nsim = 100, clevel = 0.95, 
 resqqplot = FALSE, nintLP = 100, tit = "", flow = 0.5, addlow = FALSE, 
@@ -26,8 +26,8 @@ cores = 1, xlegend = "topleft")
 \arguments{
 
 
-  \item{obFPP}{A list with  the elements  of the output from \code{\link{fitPP.fun}}, 
-see that function for details.}
+  \item{mlePP}{An object of class \code{\link{mlePP-class}}; usually,
+the output  from \code{\link{fitPP.fun}}.}
 
 
   \item{lint}{Length of the  intervals  used to calculate the residuals.}
@@ -128,19 +128,19 @@ covB<-cbind(cos(2*pi*BarTxTn$dia/365), sin(2*pi*BarTxTn$dia/365),
 	BarTxTn$TTx,BarTxTn$Txm31,BarTxTn$Txm31**2)
 
 
-modB<-fitPP.fun(tind="TRUE",covariates=covB, 
+modB<-fitPP.fun(tind=TRUE,covariates=covB, 
 	POTob=list(T=BarTxTn$Tx, thres=318),
 	tit="BAR Tx; cos, sin, TTx, Txm31, Txm31**2", 
-	beta=c(-100,1,10,0,0,0),CIty="Transf",modCI=TRUE,
+	start=list(b0=-100,b1=1,b2=10,b3=0,b4=0,b5=0),CIty="Transf",modCI=TRUE,
 	modSim=TRUE,dplot=FALSE)
 
-aux<-globalval.fun(obFPP=modB,lint=153,	covariates=covB,typeI="Disjoint", 
+aux<-globalval.fun(mlePP=modB,lint=153,	covariates=covB,typeI="Disjoint", 
 	typeRes="Raw",typeResLV="Raw",	resqqplot=FALSE)
 
 ##If typeRes and typeResLV are not specified, Pearson residuals are calculated
 ##by default.
 
-aux<-globalval.fun(obFPP=modB,lint=153,	covariates=covB,typeI="Disjoint", 
+aux<-globalval.fun(mlePP=modB,lint=153,	covariates=covB,typeI="Disjoint", 
 	resqqplot=FALSE)
 
 }

@@ -1,3 +1,5 @@
+
+
 VARbeta.fun <-
 function(covariates, lambdafit)
 {
@@ -21,16 +23,19 @@ aux<-sapply(c(1:i), FUN=calcVAR.fun, i)
 
 aux2<-sapply(c(1:K), FUN=calcVAR2.fun)
 VARbeta<-try(solve(InforM))
-if (is.matrix(VARbeta))cat('Inverse of the hessian calculated with the solve function', fill=T)
+if (is.matrix(VARbeta))  attr(VARbeta,'CalMethod')<-'solve function'
 else 
 {
 VARbeta<-try(chol2inv(chol(InforM)))
-if (is.matrix(VARbeta))cat('Inverse of the hessian calculated with the Cholesky method', fill=T)
-else cat('The variance matrix cannot be estimated since the
-inverse of the hessian  cannot  be calculated', fill=T)
+if (is.matrix(VARbeta))  attr(VARbeta,'CalMethod')<-'Cholesky'
+else {
+	VARbeta<-matrix(numeric(), 0L, 0L)
+	 attr(VARbeta,'CalMethod')<-'Not possible'
+	}
+
+
 }
 
-#VARbeta3<-ginv(InforM)
 
 return(VARbeta)
 

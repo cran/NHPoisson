@@ -1,14 +1,14 @@
 CalcResD.fun <-
-function(obFPP, h=NULL, nint=NULL,lint=NULL,  
+function(mlePP, h=NULL, nint=NULL,lint=NULL,  
 typeRes=NULL,modSim='FALSE')
 {
-n<-length(obFPP$lambdafit)
-inddat<-obFPP$inddat
+n<-length(mlePP@lambdafit)
+inddat<-mlePP@inddat
 inddat[inddat==0]<-NA
-posE<-obFPP$posE
+posE<-mlePP@posE
 if (is.null(h)) 
 {
-h<-1/obFPP$lambdafit**0.5
+h<-1/mlePP@lambdafit**0.5
 typeRes<-'Pearson'
 }
 if (is.null(typeRes)) stop('Please indicate argument typeRes')
@@ -27,8 +27,8 @@ indiceR<-rep(0,n)
 indiceR[posE]<-1
 indiceR<-indiceR*inddat
 
-lambdafit<-obFPP$lambdafit*h*inddat
-lambdafitR<-obFPP$lambdafit*inddat
+lambdafit<-mlePP@lambdafit*h*inddat
+lambdafitR<-mlePP@lambdafit*inddat
 
 int<-floor(c(0:(n-1))/lint)
 emplambda<-tapply(indice, INDEX=int, FUN=mean, na.rm = TRUE)
@@ -53,6 +53,6 @@ ScaRes<-emplambda-sumalfit
 RawRes<-emplambdaR-sumalfitR
 return(list(RawRes=RawRes,ScaRes=list(ScaRes=ScaRes,typeRes=typeRes),
 emplambda=emplambdaR,fittedlambda=sumalfitR, 
-lintV=lintV,nint=nint, lint=lint,pm=pm,typeI='Disjoint',h=h,obFPP=obFPP))
+lintV=lintV,nint=nint, lint=lint,pm=pm,typeI='Disjoint',h=h,mlePP=mlePP))
 
 }

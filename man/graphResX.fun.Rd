@@ -9,16 +9,15 @@
 of different levels of the variable. }
 
 
-\usage{graphResX.fun(X, nint, obFPP, typeRes = "Pearson", h = NULL, namX = NULL)}
+\usage{graphResX.fun(X, nint, mlePP, typeRes = "Pearson", h = NULL, namX = NULL)}
 
 
 \arguments{
   \item{X}{Numeric vector, the variable for the lurking variable plot.}
   \item{nint}{Number of intervals or levels the variable  is divided into.}
 
-  \item{obFPP}{A list (with at least) elements posE, inddat and lambdafit. For example,
-the output from \code{\link{fitPP.fun}}, see that function for details. Element 
-inddat is optional, and if it is null,  a vector of ones  is considered.}
+  \item{mlePP}{An object of class \code{\link{mlePP-class}}; usually,
+the output  from \code{\link{fitPP.fun}}.}
 
   \item{typeRes}{Label indicating the type of residuals ('Raw' or any type of 
 scaled residuals such as 'Pearson').}
@@ -26,7 +25,7 @@ scaled residuals such as 'Pearson').}
   \item{h}{Optional. Weight function  used to calculate the scaled residuals (if
 typeRes is not equal to 'Raw'). By default,  Pearson residuals with 
 \eqn{h(t)=1/\sqrt{\hat \lambda(t)}} are calculated. \eqn{\hat \lambda(t)} is provided
-by element lambdafit in obFPP.}
+by  the lambdafit  slot in mlePP.}
 
   \item{namX}{Optional. Name of variable X.}
 
@@ -85,14 +84,18 @@ Residual analysis for spatial point processes.
 ##Simulated process not related to variable X
 ##Plots dividing the  variable into  50 levels
 
-##Raw residuals
+X1<-rnorm(500)
+X2<-rnorm(500)
+auxmlePP<-fitPP.fun(posE=round(runif(50,1,500)), inddat=rep(1,500),
+	covariates=cbind(X1,X2),start=list(b0=1,b1=0,b2=0))
 
-res<-graphResX.fun(X=rnorm(500),nint=50,list(posE=round(runif(50,1,500)), 
-	lambdafit=runif(500,0,0.2), inddat=rep(1,500)),typeRes="Raw")
+
+
+##Raw residuals
+res<-graphResX.fun(X=rnorm(500),nint=50,mlePP=auxmlePP,typeRes="Raw")
 
 ##Pearson residuals
-res<-graphResX.fun(X=rnorm(500),nint=50,list(posE=round(runif(50,1,500)), 
-	lambdafit=runif(500,0,0.2), inddat=rep(1,500)),typeRes="Pearson")
+res<-graphResX.fun(X=rnorm(500),nint=50,mlePP=auxmlePP,typeRes="Pearson")
 
 
 }

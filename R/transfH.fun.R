@@ -1,9 +1,9 @@
 transfH.fun <-
-function(obFPP)
+function(mlePP)
 {
-inddat<-obFPP$inddat
-posE<-obFPP$posE
-lambdafit<-obFPP$lambdafit
+inddat<-mlePP@inddat
+posE<-mlePP@posE
+lambdafit<-mlePP@lambdafit
 lambdafitc<-lambdafit*inddat
 
 Ilambda <- inddat*cumsum(lambdafitc)

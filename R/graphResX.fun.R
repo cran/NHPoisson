@@ -1,11 +1,11 @@
 graphResX.fun <-
-function(X,nint,  obFPP, typeRes='Pearson',h=NULL,namX=NULL)
+function(X,nint,  mlePP, typeRes='Pearson',h=NULL,namX=NULL)
 {
 
-lambdafit<-obFPP$lambdafit
+lambdafit<-mlePP@lambdafit
       n<-length(lambdafit)
-posE<-obFPP$posE
-inddat<-obFPP$inddat
+posE<-mlePP@posE
+inddat<-mlePP@inddat
       if (is.null(inddat)) inddat<-rep(1,n)
 
 X[inddat==0]<-NA

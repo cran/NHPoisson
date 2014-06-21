@@ -5,18 +5,17 @@
 \title{Confidence intervals for  \eqn{\lambda(t)} based on transformation }
 
 \description{
-Given the  \eqn{\beta} variance matrix (or its estimation),  an approximate
-confidence interval for each \eqn{\lambda(t)} is calculated using a transformation of 
+Given the  \eqn{\hat \beta} covariance matrix (or its estimation),  an approximate
+confidence interval for each \eqn{\lambda(t)=\exp(\nu(t))} is calculated using a transformation of 
 the confidence interval for the linear
 predictor \eqn{\nu(t)=\textbf{X(t)} \beta}. The transformation is \eqn{\exp(I_i)}, 
-where \eqn{I_i} are the extremes of the intervals for \eqn{\nu(t)}.}
+where \eqn{I_i} are the confidence limits of \eqn{\nu(t)}.}
 
 \usage{CItran.fun(VARbeta, lambdafit, covariates, clevel = 0.95)}
 
 
 \arguments{
-  \item{VARbeta}{(Estimated) Variance matrix of the \eqn{\beta}  parameter vector of
-the PP intensity.}
+  \item{VARbeta}{(Estimated) Coariance matrix of the \eqn{\hat \beta}  parameter vector.}
 
   \item{lambdafit}{Numeric vector of fitted values of the PP intensity  
 \eqn{\hat \lambda(t)}.}

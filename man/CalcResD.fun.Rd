@@ -9,15 +9,15 @@ defined by the function \eqn{h(t)}.}
 
 
 \usage{
-CalcResD.fun(obFPP, h = NULL, nint = NULL, lint = NULL, typeRes = NULL,
+CalcResD.fun(mlePP, h = NULL, nint = NULL, lint = NULL, typeRes = NULL,
  modSim = "FALSE")
 }
 
 
 
 \arguments{
-  \item{obFPP}{A list with (at least) elements posE, inddat and lambdafit; for example,
-the output list from \code{fitPP.fun}, see that function for the details.}
+  \item{mlePP}{An object of class \code{\link{mlePP-class}}; usually,
+the output  from \code{\link{fitPP.fun}}.}
 
   \item{lint}{Optional. Length of the  intervals to calculate 
 the residuals.}
@@ -90,7 +90,7 @@ estimation (observations with inddat=1).}
 
   \item{h}{Input argument.}
 
-  \item{obFPP}{Input argument.}
+  \item{mlePP}{Input argument.}
 }
 
 
@@ -129,14 +129,14 @@ X1<-rnorm(1000)
 X2<-rnorm(1000)
 
 
-modE<-fitPP.fun(tind="TRUE",covariates=cbind(X1,X2), 
+modE<-fitPP.fun(tind=TRUE,covariates=cbind(X1,X2), 
 	posE=round(runif(40,1,1000)), inddat=rep(1,1000),
-	tim=c(1:1000), tit="Simulated example",beta=c(1,0,0),
+	tim=c(1:1000), tit="Simulated example",start=list(b0=1,b1=0,b2=0),
 	dplot=FALSE,modCI=FALSE,modSim=TRUE)
 
 #Residuals, based on 20 disjoint intervals of length 50, from the fitted NHPP modE  
 
-ResDE<-CalcResD.fun(obFPP=modE,lint=50)
+ResDE<-CalcResD.fun(mlePP=modE,lint=50)
 
 
 

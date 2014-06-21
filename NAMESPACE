@@ -1,2 +1,9 @@
 exportPattern("^[[:alpha:]]+")
-import(car, parallel)
+import(car, parallel, methods, stats4)
+exportClasses(
+    "mlePP" 
+)
+exportMethods(
+    "extractAIC", "profile"
+)
+

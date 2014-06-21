@@ -16,7 +16,7 @@ It calls the auxiliary function \code{resSim.fun}
 
 \usage{
 resQQplot.fun(nsim, objres, covariates, clevel = 0.95, cores = 1, n = 100, 
-tit = "")}
+tit ="")}
 
 \arguments{
   \item{nsim}{Number of simulations for the calculations.}
@@ -40,7 +40,7 @@ by \code{resQQplot.fun}; see that function for details.}
 \details{
 The expected quantiles are calculated as the median values  of the simulated samples. 
 Confidence intervals for each quantile \eqn{r_{(i)}} with pointwise  significance level 
-clevel  are calculated as quantiles of probability 1-clevel /2 and clevel/2 
+\code{clevel}  are calculated as quantiles of probability 1-clevel /2 and clevel/2 
 of the simulated sample for each residual. 
 
 All type of residuals (disjoint or overlapping and Pearson or raw residuals) are 
@@ -71,12 +71,13 @@ in each point.}
 X1<-rnorm(500)
 X2<-rnorm(500)
 
-aux<-fitPP.fun(tind="TRUE",covariates=cbind(X1,X2), 
+aux<-fitPP.fun(tind=TRUE,covariates=cbind(X1,X2), 
 	posE=round(runif(40,1,500)), inddat=rep(1,500),
-	tim=c(1:500), tit="Simulated example", beta=c(1,0,0),dplot=FALSE)
+	tim=c(1:500), tit="Simulated example", start=list(b0=1,b1=0,b2=0),dplot=FALSE)
 
-auxRes<-CalcResD.fun(obFPP=aux,lint=50)
-
+auxRes<-CalcResD.fun(mlePP=aux,lint=50)
 
 auxqq<-resQQplot.fun(nsim=50,objres=auxRes, covariates=cbind(X1,X2))
+
+
 }
