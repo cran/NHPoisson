@@ -35,6 +35,11 @@ method. }
 
 \references{
 Casella, G. and Berger, R.L., (2002). \emph{Statistical inference.} Brooks/Cole.
+
+Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
+Fitting and Validating Nonhomogeneous Poisson Processes. 
+\emph{Journal of Statistical Software}, 64(6), 1-24.
+
 }
 
 \note{\code{fitPP.fun} calls \code{CIdelta.fun} when the argument is \emph{CIty='Delta'}.}

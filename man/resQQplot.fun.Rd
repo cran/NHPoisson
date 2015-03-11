@@ -15,8 +15,8 @@ It calls the auxiliary function \code{resSim.fun}
 
 
 \usage{
-resQQplot.fun(nsim, objres, covariates, clevel = 0.95, cores = 1, n = 100, 
-tit ="")}
+resQQplot.fun(nsim, objres, covariates, clevel = 0.95, cores = 1, 
+tit ="", fixed.seed=NULL, histWgraph=TRUE)}
 
 \arguments{
   \item{nsim}{Number of simulations for the calculations.}
@@ -31,10 +31,14 @@ function \code{\link{CalcRes.fun}} or \code{\link{CalcResD.fun}}.}
   \item{cores}{Optional. Number of cores of the computer to be used in the 
 calculations. Default: one core is used.}
 
-  \item{n}{Argument  for the function \code{\link{simNHP.fun}} which is called
-by \code{resQQplot.fun}; see that function for details.}
-
   \item{tit}{Character string. A title for the plot.}
+
+  \item{fixed.seed}{An integer or NULL. If it is an integer, that is the value  used to set the seed 
+in  random  generation processes. It it is NULL, a random seed is used.}
+
+  \item{histWgraph}{ Logical flag.  Only used in Windows platforms. If it is TRUE,  a new graphical device is opened
+ with the option \code{record=TRUE}.}
+
 }
 
 \details{
@@ -60,8 +64,18 @@ in each point.}
   \item{resinf}{Numeric vector of the lower values of the simulated envelopes.}
   \item{objres}{Input argument.}
   \item{nsim}{Input argument.}
+  \item{fixed.seed}{Input argument.}
 }
 
+
+
+\references{
+
+Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
+Fitting and Validating Nonhomogeneous Poisson Processes. 
+\emph{Journal of Statistical Software}, 64(6), 1-24.
+
+}
 
 
 \seealso{\code{\link{simNHP.fun}}, \code{\link{GenEnv.fun}}}
@@ -77,7 +91,11 @@ aux<-fitPP.fun(tind=TRUE,covariates=cbind(X1,X2),
 
 auxRes<-CalcResD.fun(mlePP=aux,lint=50)
 
-auxqq<-resQQplot.fun(nsim=50,objres=auxRes, covariates=cbind(X1,X2))
 
+#if we want reproducible results, we can fixed the seed in the generation process
+#(the number of cores used in the calculations must also be the same to reproduce
+# the result)
+
+auxqq<-resQQplot.fun(nsim=50,objres=auxRes, covariates=cbind(X1,X2), fixed.seed=123)
 
 }

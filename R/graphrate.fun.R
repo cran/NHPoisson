@@ -1,6 +1,6 @@
 graphrate.fun <-
 function(objres=NULL, fittedlambda=NULL, emplambda=NULL, t=NULL,
-lint=NULL,typeI='Disjoint', tit='',scax=NULL,scay=NULL, xlegend='topleft')
+lint=NULL,typeI='Disjoint', tit='',scax=NULL,scay=NULL, xlegend='topleft',histWgraph=TRUE)
 {
 if (is.null(objres)&(is.null(fittedlambda)|is.null(t)|is.null(emplambda)|is.null(lint)))
 stop ('Argument objres or vector of arguments (fittedlambda, emplambda, t) must be specified')
@@ -15,7 +15,10 @@ if (typeI=='Disjoint') t<-t[objres$pm]
 lint<-objres$lint
 }
 
-dev.new()
+if (histWgraph==TRUE)	dev.new(record=TRUE)
+
+par(mfrow=c(1,1))
+
 if (is.null(scay)==TRUE)
 {
 yminn<-min(emplambda,fittedlambda,na.rm=TRUE)
@@ -23,6 +26,7 @@ ymaxx<-max(emplambda,fittedlambda,na.rm=TRUE)
 scay<-c(yminn,ymaxx)
 }
 if (is.null(scax)==TRUE) scax<-c(min(t, na.rm=TRUE), max(t, na.rm=TRUE))
+
 
 plot(t, emplambda, cex = 0.5, xlab = "time", ylab = "empirical and fitted  occurrence rates",  
 ylim=scay,xlim=scax, type = "l",lty=1)

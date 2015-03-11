@@ -111,6 +111,11 @@ Residual analysis for spatial point processes.
 Brillinger, D. (1994). Time series, point processes and hybrids. \emph{Can. J. Statist.},
 22, 177-206.
 
+Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
+Fitting and Validating Nonhomogeneous Poisson Processes. 
+\emph{Journal of Statistical Software}, 64(6), 1-24.
+
+
 Lewis, P. (1972). Recent  results in the statistical analysis of univariate point
 processes. In \emph{Stochastic point processes} (Ed. P. Lewis), 1-54. Wiley.
 

@@ -32,10 +32,16 @@ the HPP points \eqn{t^{H}_i}  is based on
 
 
 \references{
+
+Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
+Fitting and Validating Nonhomogeneous Poisson Processes. 
+\emph{Journal of Statistical Software}, 64(6), 1-24.
+
+Cox, D.R., Isham, V., 1980. \emph{Point Processes}. Chapman and Hall.
+
 Daley, D. and D. Vere-Jones (2003). 
 \emph{An Introduction to the Theory of Point Processes}. Springer.
 
-Cox, D.R., Isham, V., 1980. \emph{Point Processes}. Chapman and Hall.
 
 }
 

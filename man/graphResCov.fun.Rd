@@ -12,7 +12,7 @@ see \code{\link{graphResX.fun}} for details.}
 
 \usage{
 graphResCov.fun(Xvar, nint, mlePP, h = NULL, typeRes = "Pearson", namX = NULL, 
-indgraph = "FALSE", tit = "")}
+ histWgraph=TRUE, plotDisp=c(2,2), tit = "")}
 
 \arguments{
   \item{Xvar}{Matrix of variables (each column is a variable).}
@@ -23,18 +23,25 @@ indgraph = "FALSE", tit = "")}
   \item{mlePP}{An object of class \code{\link{mlePP-class}}; usually,
 the output  from \code{\link{fitPP.fun}}.}
 
-  \item{typeRes}{Label indicating the type of residuals ('Raw' or any type of 
-scaled residuals such as 'Pearson') used in the plots.}
+  \item{typeRes}{Label indicating the type of residuals ("Raw" or any type of 
+scaled residuals such as "Pearson") used in the plots.}
 
   \item{h}{Optional. Weight function  used to calculate the scaled residuals (if
-typeRes is not equal to 'Raw'). By default,  Pearson residuals with 
+typeRes is not equal to "Raw"). By default,  Pearson residuals with 
 \eqn{h(t)=1/\sqrt{\hat \lambda(t)}} are calculated. \eqn{\hat \lambda(t)} is provided
 by element lambdafit in mlePP.}
 
   \item{namX}{Optional. Vector of  the names of the variables in Xvar.}
 
-  \item{indgraph}{Logical flag. If it is TRUE, each plot is carried out in an
-individual window. By default, windows with  2 \eqn{\times} 2 plots are used.}
+  \item{histWgraph}{ Logical flag.   If it is TRUE,  a new graphical device is opened
+ with the option \code{record=TRUE}, so that the history of all plots is recorded in the new device. 
+ This option may not work on some platforms; for example, RStudio does not allow the user to open
+ new  graphical devices.}
+
+
+  \item{plotDisp}{ A vector of the form \code{c(nr, nc)}.  The lurking variable plots will be drawn in 
+a nr\eqn{\times}nc array. It is used as argument \code{mfrow} in \code{\link{par}}. By default,  
+a 2 \eqn{\times} 2 window is used.}
 
   \item{tit}{Character string. A title for the plot.}
 }
@@ -62,6 +69,10 @@ Baddeley, A., Turner, R., Moller, J. and Hazelton, M. (2005).
 Residual analysis for spatial point processes.
 \emph{Journal of the Royal Statistical Society}, Series B 67,617-666.
 
+Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
+Fitting and Validating Nonhomogeneous Poisson Processes. 
+\emph{Journal of Statistical Software}, 64(6), 1-24.
+
 }
 
 
@@ -84,6 +95,10 @@ auxmlePP<-fitPP.fun(posE=round(runif(50,1,500)), inddat=rep(1,500),
 Y1<-rnorm(500)
 Y2<-rnorm(500)
 res<-graphResCov.fun(mlePP=auxmlePP, Xvar=cbind(Y1,Y2), nint=50,  
-	typeRes="Raw",namX=c("Y1","Y2"),indgraph="FALSE")
+	typeRes="Raw",namX=c("Y1","Y2"),plotDisp=c(2,1))
+
+#If more variables were specified in the argument Xvar, with
+#the same 2X1 layout specified in plotDisp, the resulting plots could be 
+#scrolled up and down with the "Page Up" and "Page Down" keys.
 
 }

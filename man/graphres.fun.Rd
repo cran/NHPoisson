@@ -10,8 +10,8 @@ versus time or other variables which are monotonous functions.}
 \usage{
 graphres.fun(objres = NULL, typeRes = "Raw", t = NULL, res = NULL, lint = NULL, 
 posE = NULL, fittedlambda = NULL, typeI = "Disjoint", Xvariables = NULL, 
-namXv = NULL, indgraph = FALSE, addlow = FALSE, lwd = 2, tit = "", flow = 0.5, 
-xlegend = "topleft", legcex = 0.5)}
+namXv = NULL, histWgraph=TRUE, plotDisp=c(2,2), addlow = FALSE, lwd = 2, 
+tit = "", flow = 0.5, xlegend = "topleft", legcex = 0.5)}
 
 \arguments{
  \item{objres}{Optional. A list with (at least) elements t, typeI and Rawres  and/or ScaRes, depending on 
@@ -28,7 +28,7 @@ residuals such as "Pearson").}
   \item{lint}{Optional. Length of the  intervals used to calculate the residuals.}
 
   \item{posE}{Optional. Numeric vector of the PP occurrence times. 
-Only used when typeI="Overlapping".}
+Only used when typeI = "Overlapping".}
 
  \item{fittedlambda}{Optional. Vector of the cumulative  fitted PP intensity 
 over the intervals. Used  to calculate the envelopes when typeRes="Raw".}
@@ -40,8 +40,15 @@ over the intervals. Used  to calculate the envelopes when typeRes="Raw".}
 
   \item{namXv}{Optional. Vector of the  names of the variables in Xvariables.}
 
-  \item{indgraph}{Logical flag. If it is TRUE, plots are carried out in 
-individual windows. By default, windows with  2 \eqn{\times} 2 plots are used.}
+  \item{histWgraph}{ Logical flag.   If it is TRUE,  a new graphical device is opened
+ with the option \code{record=TRUE}, so that the history of all plots is recorded in the new device. 
+ This option may not work on some platforms; for example, RStudio does not allow the user to open
+ new  graphical devices.}
+
+
+  \item{plotDisp}{ A vector of the form \code{c(nr, nc)}.  The residual plots will be drawn in 
+a nr\eqn{\times}nc array. It is used as argument \code{mfrow} in \code{\link{par}}. By default,  
+a 2 \eqn{\times} 2 window is used.}
 
   \item{tit}{Character string. A title for the plots.}
 
@@ -71,8 +78,8 @@ value of the variables in the mean point of the interval.
 A smoother (lowess) of the residuals can be optionally added to the plots. 
 In the case of overlapping intervals,
 the residuals of the occurrence points   are  marked differently from the rest.
-In the case typeRes='Raw' (if argument fittedlambda is available) or 
-typeRes='Pearson',  envelopes for the residuals are also plotted.
+In the case typeRes="Raw" (if argument fittedlambda is available) or 
+typeRes="Pearson",  envelopes for the residuals are also plotted.
 The envelopes are based on an  approach analogous to the one shown in
 Baddeley et al. (2005) for spatial  Poisson processes.  
 The envelopes for raw residuals are,
@@ -99,6 +106,11 @@ Baddeley, A., Turner, R., Moller, J. and Hazelton, M. (2005).
 Residual analysis for spatial point processes.
 \emph{Journal of the Royal Statistical Society, Series B}, 67, 617-666.
 
+Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
+Fitting and Validating Nonhomogeneous Poisson Processes. 
+\emph{Journal of Statistical Software}, 64(6), 1-24.
+
+
 Collett, D. (1994). Modelling survival data in medical research. Chapman & Hall.
 
 }
@@ -107,7 +119,7 @@ Collett, D. (1994). Modelling survival data in medical research. Chapman & Hall.
 
 \examples{
 
-##Example using objres as input
+#Example using objres as input
 
 X1<-c(1:1000)**0.5
 
@@ -118,16 +130,20 @@ modE<-fitPP.fun(tind=TRUE,covariates=cbind(X1),
 
 ResDE<-CalcResD.fun(mlePP=modE,lint=50)
 graphres.fun(objres=ResDE, typeRes="Raw", Xvariables=cbind(X1),
-	namXv=c("X1"), indgraph=FALSE,addlow=TRUE,tit="Example")
+	namXv=c("X1"), plotDisp=c(2,1), addlow=TRUE,tit="Example")
 
 
-##Example using the set of arguments res, t and fittedlambda as input
-##In this case, if typeI="Disjoint", only values of t, fittedlambda and Xvariables 
-##in the midpoint of the intervals must be provided
+#Example using the set of arguments res, t and fittedlambda as input
+#In this case, with typeI="Disjoint", only values of t, fittedlambda and Xvariables 
+#in the midpoint of the intervals must be provided.
+
+#Since   a 1X1 layout is  specified in plotDisp and only one  
+#graphical device is opened by default, the two  resulting plots can be scrolled  
+#up and down  with the "Page Up" and "Page Down" keys.
 
 X1<-c(1:500)**0.5
 graphres.fun(res=rnorm(50),posE=round(runif(50,1,500)),
 	fittedlambda=runif(500,0,1)[seq(5,495,10)],
 	t=seq(5,495,10), typeRes="Raw", typeI="Disjoint",Xvariables=X1[seq(5,495,10)],
-	namXv=c("X1"),tit="Example 2",lint=10)
+	namXv=c("X1"), plotDisp=c(1,1), tit="Example 2",lint=10)
 }

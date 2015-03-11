@@ -37,6 +37,11 @@ an additional argument. The best covariate to be deleted  is the one  whose dele
 
 Casella, G. and Berger, R.L., (2002). \emph{Statistical inference.} Brooks/Cole.
 
+Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
+Fitting and Validating Nonhomogeneous Poisson Processes. 
+\emph{Journal of Statistical Software}, 64(6), 1-24.
+
+
 Venables, W. N. and Ripley, B. D. (2002). \emph{Modern Applied Statistics with S.} Fourth edition. Springer.
 }
 

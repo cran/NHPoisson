@@ -1,8 +1,8 @@
 resSim.fun <-
 function(i,lambda,covariates, beta,lint,t=NULL,
- tind=TRUE,typeI='Disjoint', typeRes='Pearson',h=NULL,n=100)
+ tind=TRUE,typeI='Disjoint', typeRes='Pearson',h=NULL)
 {
-posNH<-simNHP.fun(lambda=lambda,n=n)$posNH
+posNH<-simNHP.fun(lambda=lambda)$posNH
 if (is.null(t)) t<-c(1:length(lambda))
 
 mod<-fitPP.fun(covariates=covariates, start=beta, posE=posNH,  tind=tind,

@@ -34,6 +34,9 @@ Abaurrea, J., Asin, J., Cebrian, A.C. and Centelles, A.
 Ebro valley, a continental-Mediterranean area. \emph{Global and
 Planetary Change}, 57(1-2), 43-58.
 
+Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
+Fitting and Validating Nonhomogeneous Poisson Processes. 
+\emph{Journal of Statistical Software}, 64(6), 1-24.
 
 Cox, D. R. and Snell, E. J. (1968). A general definition of residuals.
 \emph{Journal of  the Royal Statistical Society, series B}, 30(2), 248-275.

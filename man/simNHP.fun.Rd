@@ -15,17 +15,17 @@ for the users), see Details section.}
 
 
 
-\usage{simNHP.fun(lambda, n = 100)}
+\usage{simNHP.fun(lambda, fixed.seed=NULL)}
 
 
 
 \arguments{
   \item{lambda}{Numeric vector, the time varying intensity \eqn{\lambda(t)}
 to generate the NHPP.}
-  \item{n}{Number of exponential observations 
-initially generated to calculate the occurrence points. If the  generated occurrence 
-points do not cover the period (0,T),  n exponential observations more are generated.
-This process is repeated until the period is covered.}
+
+  \item{fixed.seed}{An integer or NULL. If it is an integer, that is the value  used to set the seed 
+in  random  generation processes. It it is NULL, a random seed is used.}
+
 }
 
 \details{The generation of the NHPP points consists in two steps. 
@@ -39,6 +39,7 @@ This transformation is performed by the auxiliary function \code{buscar}
   \item{posNH }{Numeric vector of the occurrences times of the NHPP generated in 
 the observation period (0,T).}
   \item{lambda }{Input argument.}
+  \item{fixed.seed}{Input argument.}
 }
 
 
@@ -47,19 +48,31 @@ the observation period (0,T).}
 
 \references{
 
+Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
+Fitting and Validating Nonhomogeneous Poisson Processes. 
+\emph{Journal of Statistical Software}, 64(6), 1-24.
+
 Ross, S.M. (2006). \emph{Simulation.} Academic Press.
 
 }
 
 \examples{
-## generates the occurrence times of a homogeneours PP with  constant intensity 
-##0.01 in a period  of time of length 1000
+#Generation of the occurrence times of a homogeneours PP with  constant intensity 
+#0.01 in a period  of time of length 1000
 
 aux<-simNHP.fun(lambda=rep(0.01,1000))
 aux$posNH
 
-##generates  the occurrence times of a NHPP with  time-varying intensity t in 
-##a period  of time of length 500
+#if we want reproducible results, we can fixed the seed in the generation process
+aux<-simNHP.fun(lambda=rep(0.01,1000),fixed.seed=123)
+aux$posNH
+
+#and the result is:
+#  [1]  85 143 275 279 284 316 347 362 634 637 738 786 814 852 870 955
+
+
+#Generation of  the occurrence times of a NHPP with  time-varying intensity t in 
+#a period  of time of length 500
 
 t<-runif(500, 0.01,0.1)
 aux<-simNHP.fun(lambda=t)

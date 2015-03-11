@@ -1,22 +1,26 @@
-simNHP.fun <-
-function(lambda,n=100)
-{
 
+simNHP.fun<-function(lambda,fixed.seed=NULL)
+{
 Tfinal<-length(lambda)
 lambdacum<-cumsum(lambda)
-distexp<-rexp(n,1)
-posH<-cumsum(distexp)
-posNHaux<-apply(as.matrix(posH),MARGIN=1,FUN=buscar, lambdacum)
+lastposH<- lambdacum[Tfinal]
+if (!is.null(fixed.seed)) set.seed(fixed.seed)
+distexp<-rexp(Tfinal,1)
+posHaux<-cumsum(distexp)
+posH<-posHaux[posHaux<=lastposH]
 
-nn<-n
-while(posNHaux[nn]<Tfinal)
+
+posNH<-apply(as.matrix(posH),MARGIN=1,FUN=buscar, lambdacum)
+
+if (length(posNH)>0)
 {
-distexp<-rexp(n,1)
-posH<-posH[n]+cumsum(distexp)
-posNHaux<-c(posNHaux,apply(as.matrix(posH),MARGIN=1,FUN=buscar, lambdacum))
-nn<-nn+n
+ posNH<-posNH[c(1, diff(posNH))!=0]
 }
+#if the same point is generated twice, one of them is eliminated
+#if the number of points is 0 is not necessary to eliminate
 
-posNH<-posNHaux[posNHaux<Tfinal]
-return(list(posNH=posNH, lambda=lambda))
+
+
+return(list(posNH=posNH,lambda=lambda, fixed.seed=fixed.seed))
+
 }

@@ -1,0 +1,21 @@
+citHeader("To cite NHPoisson in publications use:")
+
+citEntry(entry = "Article",
+  title        = "{NHPoisson}: An {R} Package for Fitting and Validating Nonhomogeneous Poisson Processes",
+  author       = personList(as.person("Ana C. Cebri{\\'a}n"),
+                   as.person("Jes{\\'u}s Abaurrea"),
+                   as.person("Jes{\\'u}s As{\\'\\i}n ")),
+  journal      = "Journal of Statistical Software",
+  year         = "2015",
+  volume       = "64",
+  number       = "6",
+  pages        = "1--24",
+  url          = "http://www.jstatsoft.org/v64/i06/",
+
+  textVersion  =
+  paste("Ana C. Cebrian, Jesus Abaurrea, Jesus Asin  (2015).",
+        "NHPoisson: An R Package for Fitting and Validating Nonhomogeneous Poisson Processes.",
+        "Journal of Statistical Software, 64(6), 1-24.",
+        "URL http://www.jstatsoft.org/v64/i06/.")
+)
+

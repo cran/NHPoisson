@@ -11,7 +11,7 @@
 \usage{
 graphrate.fun(objres = NULL, fittedlambda = NULL, emplambda = NULL, t = NULL, 
 lint = NULL, typeI = "Disjoint", tit = "", scax = NULL, scay = NULL, 
-xlegend = "topleft")}
+xlegend = "topleft",histWgraph=TRUE)}
 
 \details{Either the argument objres or the set of arguments (fittedlambda, emplambda, t) 
 must be specified. If objres is provided, fittedlambda, emplambda, t,lint and typeI  
@@ -59,6 +59,10 @@ y-axis. An adequate range is selected by default.}
 
   \item{xlegend}{Label indicating the position where the legend on 
 the graph will be located.}
+
+  \item{histWgraph}{ Logical flag.  If it is TRUE,  a new graphical device is opened
+ with the option \code{record=TRUE}. This option may not work on some platforms; 
+for example, RStudio does not allow  the user to open new  graphical devices.}
 }
 
 

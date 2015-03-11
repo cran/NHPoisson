@@ -1,4 +1,3 @@
-
 fitPP.fun <-
 function(covariates=NULL,start, fixed = list(),  
 posE=NULL,inddat=NULL,POTob=NULL,nobs=NULL,
@@ -110,7 +109,7 @@ start[n] <- NULL
 start <- sapply(start, eval.parent)
 nm <- names(start)
 oo <- match(nm, names(formals(minuslogl)) )
-if (anyNA(oo)) 
+if (any(is.na(oo))) 
         stop("some named arguments in 'start' are not arguments to the supplied log-likelihood")
 start <- start[order(oo)]
 nm <- names(start)
@@ -203,7 +202,6 @@ else
 
 if (dplot==TRUE)
 {
-dev.new()
 if ((modCI==TRUE)&(is.null(lambdaylim))) lambdaylim<-c(min(LIlambda, na.rm=TRUE), max(UIlambda, na.rm=TRUE))
 plot(tim,lambdafit, ty='n',ylab='intensity', xlab='time', ylim=lambdaylim, xlim=lambdaxlim)
 if (modCI==TRUE)

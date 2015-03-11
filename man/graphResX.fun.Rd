@@ -73,6 +73,11 @@ University Press.
 Baddeley, A., Turner, R., Moller, J. and Hazelton, M. (2005).
 Residual analysis for spatial point processes.
 \emph{Journal of the Royal Statistical Society}, Series B 67, 617-666.
+
+Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
+Fitting and Validating Nonhomogeneous Poisson Processes. 
+\emph{Journal of Statistical Software}, 64(6), 1-24.
+
 }
 
 

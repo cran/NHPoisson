@@ -140,6 +140,11 @@ using  an intensity defined by  only an intercept  and no covariate.}
 
 \references{
 
+Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
+Fitting and Validating Nonhomogeneous Poisson Processes. 
+\emph{Journal of Statistical Software}, 64(6), 1-24.
+
+
 Coles, S. (2001). \emph{An introduction to statistical modelling of extreme
 values.} Springer.
 

@@ -20,8 +20,8 @@ and  calculates the corresponding statistic using the simulated points.}
 
 
 \usage{
-GenEnv.fun(nsim, lambda, fun.name, fun.args = NULL, clevel = 0.95, n = 100, 
-cores = 1)}
+GenEnv.fun(nsim, lambda, fun.name, fun.args = NULL, clevel = 0.95, 
+cores = 1, fixed.seed=NULL)}
 
 \arguments{
   \item{nsim}{Number of simulations for the calculations.}
@@ -35,11 +35,11 @@ cores = 1)}
 
   \item{clevel}{Confidence level of the envelope.}
 
-  \item{n}{Auxiliary argument  for the function \code{\link{simNHP.fun}},
-called by \code{GenEnv.fun}; see that function for details.}
-
   \item{cores}{Optional.  Number of cores of the computer
 to be used in the calculations. Default: one core is used.}
+
+  \item{fixed.seed}{An integer or NULL. If it is an integer, that is the value  used to set the seed 
+in  random  generation processes. It it is NULL, a random seed is used.}
 
 }
 
@@ -52,6 +52,7 @@ to be used in the calculations. Default: one core is used.}
   \item{lambda}{Input argument.}
   \item{nsim}{Input argument.}
   \item{nsimval}{Number of valid simulations (used in the calculation of the CI and the point estimation).}
+  \item{fixed.seed}{Input argument.}	
 }
 
 
@@ -59,11 +60,20 @@ to be used in the calculations. Default: one core is used.}
 \seealso{ \code{\link{simNHP.fun}}, \code{\link{resQQplot.fun}}}
 
 \examples{
-## Calculates the point estimation and a 95% CI based on 100 simulations 
-##for the second occurrence time of a NHPP with intensity lambdat
+# Calculation of the point estimation and a 95% CI based on 100 simulations 
+#for the second occurrence time of a NHPP with intensity lambdat.
+#posk.fun(x, k) is a function that returns the value in the row k of vector x.
 
-##posk.fun(x, k) is a function that returns the value in the row k of vector x.
 lambdat<-runif(1000,0.01,0.02)
 aux<-GenEnv.fun(lambda=lambdat,fun.name="posk.fun",fun.args=2,nsim=100)
+
+#if we want reproducible results, we can fixed the seed in the generation process
+#(the number of cores used in the calculations must also be the same to reproduce 
+#the result)
+
+aux<-GenEnv.fun(lambda=lambdat,fun.name="posk.fun",fun.args=2,nsim=100,fixed.seed=123)
+
+#the result (with 1 core): Lower interval:  25.55; Mean value:  136.06; Upper interval:  288
+
 }
 

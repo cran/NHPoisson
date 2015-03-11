@@ -29,7 +29,6 @@ if(lint*nint!=n) cat(' except the las one of length ',ultlint, fill=T)
 cat(fill=T)
 if (plotEmp!=FALSE)
 {
-dev.new()
 if (is.null(scay)==TRUE) scay<-c(min(emplambda, na.rm=TRUE), max(emplambda, na.rm=TRUE))
 if (is.null(scax)==TRUE) scax<-c(min(t, na.rm=TRUE), max(t, na.rm=TRUE))
 plot(t[pmedio],emplambda,cex=0.5,xlab='time',ylab='empirical occurrence rate',
