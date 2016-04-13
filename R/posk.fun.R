@@ -1,5 +1,5 @@
 posk.fun <-
-function(x,k)
-{
-return(x[k])
-}
+  function(x,k)
+  {
+    return(x[k])
+  }
