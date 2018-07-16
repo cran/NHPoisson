@@ -9,7 +9,7 @@ citEntry(entry = "Article",
   year         = "2015",
   volume       = "64",
   number       = "6",
-  pages        = "1--24",
+  pages        = "1--25",
   url          = "http://www.jstatsoft.org/v64/i06/",
 
   textVersion  =

@@ -1,10 +1,10 @@
 \name{graphrate.fun}
 \alias{graphrate.fun}
 
-\title{Plot fitted and  empirical  PP occurrence rates}
+\title{Plot of the fitted and  empirical  occurrence rate}
 
 \description{This function calculates the empirical  and the cumulative fitted occurrence rate
- of a PP  on overlapping or disjoint intervals and plot them versus time.}
+ of a Poisson process  on overlapping or disjoint intervals and plot them versus time.}
 
 
 

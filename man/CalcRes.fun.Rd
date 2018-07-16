@@ -1,7 +1,7 @@
 \name{CalcRes.fun}
 \alias{CalcRes.fun}
 
-\title{Calculate NHPP residuals on overlapping intervals}
+\title{NHPP residuals on overlapping intervals}
 
 \description{This function calculates raw and scaled residuals of a NHPP based on 
  overlapping intervals. The scaled residuals can be Pearson or any other type of scaled residuals
@@ -93,7 +93,7 @@ Brillinger, D. (1994). Time series, point processes and hybrids. \emph{Can. J. S
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-24.
+\emph{Journal of Statistical Software}, 64(6), 1-25.
 
 
 Lewis, P. (1972). Recent  results in the statistical analysis of univariate point

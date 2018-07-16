@@ -38,7 +38,7 @@ Casella, G. and Berger, R.L., (2002). \emph{Statistical inference.} Brooks/Cole.
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-24.
+\emph{Journal of Statistical Software}, 64(6), 1-25.
 
 }
 

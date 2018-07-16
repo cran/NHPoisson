@@ -1,9 +1,16 @@
 exportPattern("^[[:alpha:]]+")
-import(car, parallel, methods, stats4)
+import(methods, parallel, stats4, car)
+importFrom("grDevices", "dev.new")
+importFrom("graphics", "abline", "legend", "lines", "mtext", "par",
+             "points", "title")
+importFrom("stats", "Box.test", "acf", "complete.cases", "cor.test",
+             "ks.test", "lm", "lowess", "na.exclude", "nlminb", "optim",
+             "pchisq", "predict", "qchisq", "qnorm", "quantile", "rexp")
+
+exportMethods(
+    "extractAIC",
+    "profile" 
+)
 exportClasses(
     "mlePP" 
 )
-exportMethods(
-    "extractAIC", "profile"
-)
-

@@ -4,7 +4,7 @@
 
 
 
-\title{Perform a qqplot for the residuals of a NHPP}
+\title{QQplot of the residuals of a NHPP}
 
 \description{This function  performs a qqplot comparing the empirical quantiles of the 
 residuals with the expected quantiles under the fitted NHPP,
@@ -73,7 +73,7 @@ in each point.}
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-24.
+\emph{Journal of Statistical Software}, 64(6), 1-25.
 
 }
 

@@ -3,7 +3,7 @@
 \alias{graphResX.fun}
 
 
-\title{Perform a lurking  variable plot}
+\title{Lurking  variable plot}
 
 \description{This function performs a lurking  variable plot to analyze the residuals  in terms
 of different levels of the variable. }
@@ -76,7 +76,7 @@ Residual analysis for spatial point processes.
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-24.
+\emph{Journal of Statistical Software}, 64(6), 1-25.
 
 }
 

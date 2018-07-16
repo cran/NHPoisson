@@ -1,7 +1,6 @@
 \name{globalval.fun}
 \alias{globalval.fun}
-
-\title{Perform a global validation analysis for a NHPP}
+\title{Global validation analysis of a NHPP}
 
 \description{This function performs a thorough validation analysis for a fitted NHPP. 
 It calculates
@@ -88,7 +87,7 @@ plots, see \code{\link{lowess}}.}
  new  graphical devices.}
 
 
-  \item{plotDisp}{ A vector of the form \code{c(nr, nc)}.  The residual plots  in \code{\link{graphresU.fun}}, 
+  \item{plotDisp}{ A vector \code{c(nr, nc)}.  The residual plots  in \code{\link{graphresU.fun}}, 
 \code{\link{graphres.fun}} and \code{\link{graphResCov.fun}}
 will be drawn in a nr\eqn{\times}nc layout. It is used as argument \code{mfrow} in \code{\link{par}}. By default,  
 a 2 \eqn{\times} 2 layout is used.}
@@ -131,7 +130,7 @@ to be used in the calculations. Default: one core is used.}
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-24.
+\emph{Journal of Statistical Software}, 64(6), 1-25.
 }
 
 \seealso{

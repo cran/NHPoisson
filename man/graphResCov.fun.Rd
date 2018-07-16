@@ -2,10 +2,10 @@
 
 \alias{graphResCov.fun}
 
-\title{Perform lurking variable plots for a set of variables}
+\title{Lurking variable plots of a set of variables}
 
-\description{This function performs  lurking variable plots 
-for a set of variables. The function 
+\description{This function performs the  lurking variable plots 
+of a set of variables. The function 
 \code{\link{graphResX.fun}}  performs the lurking  variable plot for one variable and
 \code{graphResCov.fun}  calls this function for a set of variables;
 see \code{\link{graphResX.fun}} for details.}
@@ -71,7 +71,7 @@ Residual analysis for spatial point processes.
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-24.
+\emph{Journal of Statistical Software}, 64(6), 1-25.
 
 }
 

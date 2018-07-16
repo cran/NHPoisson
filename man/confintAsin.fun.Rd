@@ -1,9 +1,11 @@
 \name{confintAsin.fun}
 \alias{confintAsin.fun}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{Compute confidence intervals for  the  \eqn{\beta} parameters}
 
-\description{ This function computes confidence intervals for  the  \eqn{\beta} parameters.}
+
+\title{Confidence intervals for  the  \eqn{\beta} parameters}
+
+\description{This function calculates the confidence intervals of  the  \eqn{\beta} parameters  in the linear
+predictor which defines the intensity function of a Poisson process.}
 
 \usage{confintAsin.fun(mlePP, level = 0.95)}
 
@@ -32,7 +34,7 @@ Casella, G. and Berger, R.L., (2002). \emph{Statistical inference.} Brooks/Cole.
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-24.
+\emph{Journal of Statistical Software}, 64(6), 1-25.
 
 }
 

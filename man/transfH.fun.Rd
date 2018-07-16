@@ -1,7 +1,7 @@
 \name{transfH.fun}
 \alias{transfH.fun}
 
-\title{Transform  a NHPP into a HPP}
+\title{Transforming  a NHPP into a HPP}
 
 \description{This function transforms the  points \eqn{t^{NH}_i} of a NHPP into 
 the occurrence points  
@@ -35,7 +35,7 @@ the HPP points \eqn{t^{H}_i}  is based on
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-24.
+\emph{Journal of Statistical Software}, 64(6), 1-25.
 
 Cox, D.R., Isham, V., 1980. \emph{Point Processes}. Chapman and Hall.
 

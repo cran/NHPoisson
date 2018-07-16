@@ -1,11 +1,11 @@
 \name{LRTpv.fun}
 \alias{LRTpv.fun}
 
-\title{Calculate the p-value of a likelihood ratio test for each covariate in the model}
+\title{Likelihood ratio test  of the covariates in a model}
  
-\description{This function calculates, for each covariate in the model (except the intercept),  the p-value 
-of a likelihood  ratio test comparing  the  original fitted NHPP with the model excluding 
-that covariate from the linear predictor.}
+\description{This function carries out, for each covariate in the model (except the intercept),  
+a likelihood  ratio test comparing  the  original fitted NHPP with the model excluding 
+that covariate from the linear predictor, and  provides the corresponding p-values.}
 
 \usage{
 LRTpv.fun(mlePP)
