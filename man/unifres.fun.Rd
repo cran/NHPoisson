@@ -2,7 +2,7 @@
 
 \alias{unifres.fun}
 
-\title{Exponential and Uniform (generalized) residuals of a HPP}
+\title{Calculate exponential and uniform (generalized) residuals of a HPP}
 
 \description{
 This function calculates the exponential \eqn{d_i} and the uniform (generalized)
@@ -36,7 +36,7 @@ Planetary Change}, 57(1-2), 43-58.
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-25.
+\emph{Journal of Statistical Software}, 64(6), 1-24.
 
 Cox, D. R. and Snell, E. J. (1968). A general definition of residuals.
 \emph{Journal of  the Royal Statistical Society, series B}, 30(2), 248-275.

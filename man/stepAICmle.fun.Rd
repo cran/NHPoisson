@@ -3,10 +3,10 @@
 \alias{checkdim}
 
 
-\title{Selection of the best model with a stepwise algorithm}
+\title{Choose  the best PP model by AIC in a stepwise algorithm}
 
-\description{Performs a stepwise model selection in Poisson proces models 
-estimated by maximum likelihood, using as selection criteria the AIC of the models. 
+\description{Performs stepwise model selection by AIC for Poisson proces models 
+estimated by maximum likelihood. 
 
 It calls the auxiliary function \code{checkdim} (not intended
 for the users).}
@@ -57,7 +57,7 @@ Casella, G. and Berger, R.L., (2002). \emph{Statistical inference.} Brooks/Cole.
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-25.
+\emph{Journal of Statistical Software}, 64(6), 1-24.
 
 Venables, W. N. and Ripley, B. D. (2002). \emph{Modern Applied Statistics with S.} Fourth edition. Springer.
 }

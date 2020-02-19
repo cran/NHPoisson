@@ -222,7 +222,7 @@ if (tind==TRUE)	covariates<-checkdim(covariates,j=1)
             NA_integer_
         else nobs, method=minfun, npar=npar,inddat=inddat,
 	lambdafit=lambdafit,  LIlambda=LIlambda, UIlambda=UIlambda,convergence=convergence,
-	posE=posE, covariates=covariates, fixed=fixed, tit=tit,tind=tind, t=tim)
+	posE=posE, covariates=covariates, tit=tit,tind=tind, t=tim)
 
 }
 

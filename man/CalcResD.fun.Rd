@@ -1,7 +1,7 @@
 \name{CalcResD.fun}
 \alias{CalcResD.fun}
 
-\title{NHPP residuals on disjoint intervals}
+\title{Calculate NHPP residuals on disjoint intervals}
 
 \description{This function calculates raw and scaled  residuals of a NHPP based on 
 disjoint intervals. The scaled residuals can be Pearson or any other type of scaled residuals

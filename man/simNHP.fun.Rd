@@ -2,7 +2,7 @@
 \alias{simNHP.fun}
 \alias{buscar}
 
-\title{Generation of the occurrence points of a NHPP}
+\title{Generate the occurrence points of a NHPP}
 
 \description{This function generates the occurrence times of the points  
 of a NHPP with  a given  time-varying intensity \eqn{\lambda(t)}, 
@@ -50,7 +50,7 @@ the observation period (0,T).}
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-25.
+\emph{Journal of Statistical Software}, 64(6), 1-24.
 
 Ross, S.M. (2006). \emph{Simulation.} Academic Press.
 

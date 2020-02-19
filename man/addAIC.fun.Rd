@@ -1,7 +1,7 @@
 \name{addAIC.fun}
 \alias{addAIC.fun}
 
-\title{AIC of all one-covariate additions to  the current model}
+\title{Calculate the AIC  for all one-covariate additions to  the current model}
 
 \description{ This function fits all models that differ from the current model by adding a single covariate from 
 those supplied,  and calculates their AIC value. It selects the best covariate to be added to the model, 

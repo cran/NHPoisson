@@ -67,7 +67,7 @@ Residual analysis for spatial point processes.
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-25.
+\emph{Journal of Statistical Software}, 64(6), 1-24.
 
 Collett, D. (1994). Modelling survival data in medical research. Chapman \& Hall.
 

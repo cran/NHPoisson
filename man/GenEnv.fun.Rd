@@ -4,7 +4,7 @@
 \alias{posk.fun}
 
 
-\title{Simulated envelopes}
+\title{Calculation of simulated envelopes}
 
 \description{This function calculates a  point estimation and an envelope
 for a  given statistic using a Monte Carlo approach. The statistic must be a function 

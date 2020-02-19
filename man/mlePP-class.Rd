@@ -42,7 +42,6 @@ result of a call to \code{\link{fitPP.fun}}.  }
     \item{\code{convergence}:}{Object of class \code{"integer"}. A code of convergence. 0 indicates successful convergence. }
     \item{\code{posE}:}{Object of class \code{"numeric"}. Input argument  of \code{\link{fitPP.fun}}.}
     \item{\code{covariates}:}{Object of class \code{"matrix"}. Input argument  of \code{\link{fitPP.fun}}.} 
-    \item{\code{fixed}:}{Object of class \code{"list"}. Input argument  of \code{\link{fitPP.fun}}.} 
     \item{\code{tit}:}{Object of class \code{"character"}. Input argument of \code{\link{fitPP.fun}}.} 
     \item{\code{tind}:}{Object of class \code{"logical"}. Input argument of \code{\link{fitPP.fun}}.}
     \item{\code{t}:}{Object of class \code{"numeric"}. Input argument of \code{\link{fitPP.fun}}.} 

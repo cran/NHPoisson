@@ -1,11 +1,11 @@
 \name{graphres.fun}
 \alias{graphres.fun}
 
-\title{Plot of the NHPP residuals}
+\title{Plot NHPP residuals versus time or  monotonous variables}
 
-\description{This function plots the residuals of a NHPP (raw or scaled, 
+\description{This function plots residuals of a NHPP (raw or scaled, 
 overlapping or disjoint) 
-versus time or other variables which are monotonous functions of time.}
+versus time or other variables which are monotonous functions.}
 
 \usage{
 graphres.fun(objres = NULL, typeRes = "Raw", t = NULL, res = NULL, lint = NULL, 
@@ -108,7 +108,7 @@ Residual analysis for spatial point processes.
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-25.
+\emph{Journal of Statistical Software}, 64(6), 1-24.
 
 
 Collett, D. (1994). Modelling survival data in medical research. Chapman & Hall.

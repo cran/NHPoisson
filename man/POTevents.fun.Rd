@@ -1,6 +1,6 @@
 \name{POTevents.fun}
 \alias{POTevents.fun}
-\title{Calculation of the extreme events using a POT approach}
+\title{Calculate extreme events using a POT approach}
 
 \description{This function calculates the characteristics of the extreme events
 of a series  \eqn{(x_i)}  defined using a peak over threshold (POT) method

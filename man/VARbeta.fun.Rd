@@ -1,7 +1,7 @@
 \name{VARbeta.fun}
 \alias{VARbeta.fun}
 
-\title{Covariance matrix of the \eqn{\hat \beta} vector.}
+\title{Calculate the covariance matrix of the \eqn{\hat \beta} vector.}
 
 \description{This function estimates  the covariance matrix of the ML estimators of the  
 \eqn{\beta} parameters, using the asymptotic distribution and properties of the ML estimators.}
@@ -31,7 +31,7 @@ Casella, G. and Berger, R.L., (2002). \emph{Statistical inference.} Brooks/Cole.
 
 Cebrian, A.C., Abaurrea, J. and Asin, J. (2015). {NHPoisson}: An {R} Package for 
 Fitting and Validating Nonhomogeneous Poisson Processes. 
-\emph{Journal of Statistical Software}, 64(6), 1-25.
+\emph{Journal of Statistical Software}, 64(6), 1-24.
 
 }
 
