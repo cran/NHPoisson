@@ -1,4 +1,4 @@
-c1739a946b0ded250e0a76cf53d2cdf9 *DESCRIPTION
+ca0f839f0998086f2e7024e1566a6792 *DESCRIPTION
 1873f88493f6efcde80d780d50e9f817 *NAMESPACE
 006925ad908f697c9c9b83d5f51d4bc6 *R/CIdelta.fun.r
 a3a7b7d8f485ee26f65219629b0a4498 *R/CItran.fun.r
@@ -34,7 +34,8 @@ a3a84d3757c7ccb1bd6602713acf315f *R/simNHP.fun.r
 0d6a0eb4a9d6f5f3abfa7b81600262ff *R/testlik.fun.r
 405c8a5e68d5beee288a0a9716f3c3eb *R/transfH.fun.r
 a2936201c57842d28bbbae26a8e42741 *R/unifres.fun.r
-dda53a04c7b594b623bf9ac00516a3d3 *data/BarTxTn.rda
+5516a927ef72f37128395aa7c65419eb *data/BarTxTn.rda
+1740caafc022397445b243678a08b425 *inst/CITATION
 b34e7a84917a4a3a93bed413b132c105 *man/BarTxTn.Rd
 4c73826d88c7257e16084f5f9e58a692 *man/CIdelta.fun.Rd
 437b1cc3d90b5dac9fb9c244187f41e6 *man/CItran.fun.Rd
@@ -42,7 +43,7 @@ b34e7a84917a4a3a93bed413b132c105 *man/BarTxTn.Rd
 ecaf061cce15c0a04870f32375459d92 *man/CalcResD.fun.Rd
 1f9d5e2c52b17efe39deed600fa45615 *man/GenEnv.fun.Rd
 ae0abe570acf58b8ca1dd12669435f25 *man/LRTpv.fun.Rd
-96ccf612286cce970c09ddd6b2d53b95 *man/NHPoisson-package.Rd
+452177cf3da53aba553effbabeb6f1dc *man/NHPoisson-package.Rd
 1862c61981280e7970c16657c792c71e *man/POTevents.fun.Rd
 fbdd8440b8eb5a76f415c7a34f43262a *man/VARbeta.fun.Rd
 6a9c8797e7a0eff93da6b0b002ae6d73 *man/addAIC.fun.Rd
@@ -57,7 +58,7 @@ ce178f0c56ba2af90236bbbfe5847453 *man/globalval.fun.Rd
 92c8cbb23ccf358b055f392f0f2d39b0 *man/graphResX.fun.Rd
 ad56a0c9fb9ef7e20b1e33cffdf8504e *man/graphrate.fun.Rd
 6af1cca56240ca0cd8206386fc352876 *man/graphres.fun.Rd
-f6f261019fe3ac88f182391b7424179d *man/graphresU.fun.Rd
+8eb2b5f29b795a670ef3291b73ed1f5e *man/graphresU.fun.Rd
 64f13b8a174a725ff87e3d09478b39d9 *man/mlePP-class.Rd
 837ddef8b4e5a79215108f055e082037 *man/profile-methods.Rd
 ad0e0be4e6fbb76f3f1d0c0212cd476b *man/resQQplot.fun.Rd

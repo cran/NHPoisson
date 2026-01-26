@@ -1,0 +1,21 @@
+bibentry(bibtype = "Article",
+  title        = "{NHPoisson}: An R Package for Fitting and Validating Nonhomogeneous Poisson Processes",
+  author       = c(person(given = "Ana C.",
+                          family = "Cebrian",
+                          email = "acebrian@unizar.es"),
+                   person(given = c("Jesus"),
+                          family = "Abaurrea",
+                          email = "abaurrea@unizar.es"),
+                   person(given = "Jesus",
+                          family = "Asin",
+                          email = "jasin@unizar.es")),
+  journal      = "Journal of Statistical Software",
+  year         = "2015",
+  volume       = "64",
+  number       = "6",
+  pages        = "1--25",
+  doi          = "10.18637/jss.v064.i06",
+
+  header       = "To cite gets in publications use:"
+)
+
